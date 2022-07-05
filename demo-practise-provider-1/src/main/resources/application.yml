@@ -1,0 +1,12 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    #Eureka实例名，集群中根据这里相互识别
+    name: demo-practise-provider-1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8082/eureka/
