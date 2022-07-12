@@ -23,6 +23,7 @@
         <module>demo-practise-provider-2</module>
         <module>demo-practise-common</module>
         <module>demo-practise-exercise</module>
+        <module>demo-practise-multidatasource-aop</module>
     </modules>
 
     <properties>
@@ -110,12 +111,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- 持久层 -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.1.0</version>
-        </dependency>
+
         <!-- druid连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.multidatasource.aop.mapper.TeacherMapper">
+    <resultMap id="teacherResultMap" type="com.demo.multidatasource.aop.entity.Teacher">
+        <id column="id"  property="id"></id>
+        <result column="name"  property="name"></result>
+        <result column="addr" property="addr"></result>
+    </resultMap>
+
+    <select id="selectAllTeachers" resultMap="teacherResultMap">
+        select id, name, addr from teacher;
+    </select>
+</mapper>

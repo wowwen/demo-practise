@@ -20,6 +20,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>demo-practise-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
@@ -35,6 +41,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>
@@ -55,7 +67,20 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArguments>
+                        <bootclasspath>C:\Program Files\Java\jdk1.8.0_171\jre\lib\rt.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
 
 </project>

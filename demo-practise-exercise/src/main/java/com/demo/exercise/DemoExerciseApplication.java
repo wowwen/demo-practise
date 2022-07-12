@@ -1,4 +1,4 @@
-package com.demo.dynamicdb;
+package com.demo.exercise;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  */
 @SpringBootApplication
-public class DemoPractiseComsumerApplication {
+public class DemoExerciseApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DemoPractiseComsumerApplication.class, args);
+
+        SpringApplication.run(DemoExerciseApplication.class, args);
+
     }
+
+
+
 }

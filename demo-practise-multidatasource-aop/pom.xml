@@ -9,25 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-practise-consumer</artifactId>
+    <artifactId>demo-practise-multidatasource-aop</artifactId>
 
     <dependencies>
-        <!--需要将common模块clean install-->
-        <!--如果install报错:maven打包异常：Unable to find main class，则须将父工程中的如下<build>去掉，然后再将<build>
-        移到需要打包的modle里面-->
-<!--        <build>-->
-<!--            <plugins>-->
-<!--                <plugin>-->
-<!--                    <groupId>org.springframework.boot</groupId>-->
-<!--                    <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--                </plugin>-->
-<!--            </plugins>-->
-<!--        </build>-->
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>demo-practise-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <!--AOP切面-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
