@@ -6,8 +6,9 @@
         <result column="name"  property="name"></result>
         <result column="addr"  property="addr"></result>
     </resultMap>
-
-    <select id="selectAllStudents" resultMap="stuResultMap">
-        select id, name, addr from student;
+    <select id="selectAllStudents" resultType="com.demo.multidatasource.aop.entity.Student">
+        select * from student
     </select>
+
+
 </mapper>
