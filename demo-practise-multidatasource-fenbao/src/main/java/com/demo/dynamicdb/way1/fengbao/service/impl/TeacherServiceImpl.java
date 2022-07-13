@@ -1,6 +1,5 @@
 package com.demo.dynamicdb.way1.fengbao.service.impl;
 
-import com.demo.dynamicdb.way1.fengbao.entity.Student;
 import com.demo.dynamicdb.way1.fengbao.entity.Teacher;
 import com.demo.dynamicdb.way1.fengbao.mapper.ds2.TeacherMapper;
 import com.demo.dynamicdb.way1.fengbao.service.ITeacherService;
