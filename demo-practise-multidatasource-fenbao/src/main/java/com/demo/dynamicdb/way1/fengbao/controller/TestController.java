@@ -1,10 +1,10 @@
 package com.demo.dynamicdb.way1.fengbao.controller;
 
-import com.demo.practise.common.resp.Message;
 import com.demo.dynamicdb.way1.fengbao.entity.Student;
 import com.demo.dynamicdb.way1.fengbao.entity.Teacher;
 import com.demo.dynamicdb.way1.fengbao.service.IStudentService;
 import com.demo.dynamicdb.way1.fengbao.service.ITeacherService;
+import com.demo.practise.common.resp.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;

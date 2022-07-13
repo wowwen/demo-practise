@@ -24,6 +24,7 @@
         <module>demo-practise-common</module>
         <module>demo-practise-exercise</module>
         <module>demo-practise-multidatasource-aop</module>
+        <module>demo-practise-multidatasource-fenbao</module>
     </modules>
 
     <properties>
