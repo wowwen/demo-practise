@@ -11,5 +11,14 @@
 
     <artifactId>demo-practise-exercise</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>demo-practise-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
 
 </project>

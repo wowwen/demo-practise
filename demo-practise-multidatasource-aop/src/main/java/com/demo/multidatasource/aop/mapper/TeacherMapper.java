@@ -1,11 +1,9 @@
 package com.demo.multidatasource.aop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.demo.multidatasource.aop.annotation.DataSource;
 import com.demo.multidatasource.aop.entity.Teacher;
-import com.demo.multidatasource.aop.enums.DataSourceEnum;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -13,5 +11,6 @@ import java.util.List;
 @Mapper
 public interface TeacherMapper extends BaseMapper<Teacher> {
 
+//    @Select("select * from teacher")
     List<Teacher> selectAllTeachers();
 }

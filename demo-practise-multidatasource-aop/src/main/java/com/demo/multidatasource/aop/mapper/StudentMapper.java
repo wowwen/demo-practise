@@ -1,10 +1,8 @@
 package com.demo.multidatasource.aop.mapper;
 
-import com.demo.multidatasource.aop.annotation.DataSource;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.demo.multidatasource.aop.entity.Student;
-import com.demo.multidatasource.aop.enums.DataSourceEnum;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -26,8 +24,7 @@ import java.util.List;
 //Field studentMapper in com.example.demo.practise.provider2.others.service.StudentService required a bean of type 'com.example.demo.practise.provider2.others.mapper.StudentMapper' that could not be found.
 
 @Mapper
-public interface StudentMapper {
+public interface StudentMapper extends BaseMapper<Student> {
 
-    @DataSource(DataSourceEnum.PRIMARY)
     List<Student> selectAllStudents();
 }

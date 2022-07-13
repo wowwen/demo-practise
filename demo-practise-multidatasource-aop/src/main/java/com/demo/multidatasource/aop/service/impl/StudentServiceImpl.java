@@ -16,6 +16,7 @@ public class StudentServiceImpl implements IStudentService {
     private StudentMapper studentMapper;
 
     @Override
+    @DataSource(DataSourceEnum.PRIMARY)
     public List<Student> getAll() {
         return studentMapper.selectAllStudents();
     }
