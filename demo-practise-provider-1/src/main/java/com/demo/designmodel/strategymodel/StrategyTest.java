@@ -3,7 +3,7 @@ package com.demo.designmodel.strategymodel;
 import com.demo.designmodel.strategymodel.v1.*;
 import com.demo.designmodel.strategymodel.v2.StrategyFactory;
 import com.demo.designmodel.strategymodel.v2.StrategyV2;
-import com.example.demo.designmodel.strategymodel.v1.*;
+import com.demo.designmodel.strategymodel.v1.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,7 +55,6 @@ public class StrategyTest {
 //    }
 
     public static void main(String[] args) {
-
 
         Long timeStamp = System.currentTimeMillis();
         System.out.println(timeStamp);
