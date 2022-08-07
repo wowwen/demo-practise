@@ -1,0 +1,12 @@
+spring:
+  redis:
+    port: 6379 #端口号
+    password:  #输入redis数据库密码
+    host: 127.0.0.1    #输入ip地址
+    timeout: 2000   #连接超时
+    database: 0
+    jedis:             #jedis连接池配置
+      pool:
+        max-idle: 6    #最大空闲数
+        max-active: 10 #最大连接数
+        min-idle: 2    #最小空闲数

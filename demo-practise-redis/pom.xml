@@ -12,10 +12,12 @@
     <artifactId>demo-practise-redis</artifactId>
 
     <dependencies>
-        <!-- redis -->
+
+        <!-- redis采用jedis客户端 纯采用Jedis，不再在上面使用spring-boot-starter-data-redis(还有第二种方法可以使用starter包)-->
+        <!-- 需要自己写jedis的配置类-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
         </dependency>
     </dependencies>
 

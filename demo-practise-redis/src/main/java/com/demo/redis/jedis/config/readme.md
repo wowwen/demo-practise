@@ -1,0 +1,1 @@
+由于没有采用spring-boot-starter-data-redis,此类为自定义的配置类，采用JedisPool
