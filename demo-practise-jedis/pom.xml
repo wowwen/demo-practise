@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-practise-redis</artifactId>
+    <artifactId>demo-practise-jedis</artifactId>
 
     <dependencies>
 

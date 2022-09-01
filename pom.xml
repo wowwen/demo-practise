@@ -25,7 +25,7 @@
         <module>demo-practise-exercise</module>
         <module>demo-practise-multidatasource-aop</module>
         <module>demo-practise-multidatasource-fenbao</module>
-        <module>demo-practise-redis</module>
+        <module>demo-practise-jedis</module>
         <module>demo-practise-encode-param</module>
     </modules>
 
