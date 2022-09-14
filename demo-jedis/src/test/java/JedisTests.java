@@ -1,4 +1,4 @@
-import com.demo.redis.DemoPractiseRedisApplication;
+import com.demo.redis.DemoJedisApplication;
 import com.demo.redis.jedis.service.JedisServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = DemoPractiseRedisApplication.class)
+@SpringBootTest(classes = DemoJedisApplication.class)
 public class JedisTests {
 
     @Resource

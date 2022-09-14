@@ -9,22 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-practise-jedis</artifactId>
+    <artifactId>demo-lettuce</artifactId>
 
     <dependencies>
-
-        <!-- redis采用jedis客户端 纯采用Jedis，不再在上面使用spring-boot-starter-data-redis(还有第二种方法可以使用starter包)-->
-        <!-- 需要自己写jedis的配置类-->
+        <!-- redis -->
+        <!--lettuce-->
         <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-
-        <!--redis的延时队列的练习中使用到了fastjson-->
+        <!--redisson-->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.13.6</version>
         </dependency>
+        <!-- redis -->
     </dependencies>
-
 </project>
