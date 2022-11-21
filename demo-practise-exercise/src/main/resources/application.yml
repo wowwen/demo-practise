@@ -2,7 +2,12 @@ spring:
   application:
     name: exercise
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/db1?serverTimezone=Asia/Shanghai
     username: root
     password: 111
+
+secret:
+  privateKey:
+    h5: 123456
+    web: 8VBkO5amPcPrXV3m
