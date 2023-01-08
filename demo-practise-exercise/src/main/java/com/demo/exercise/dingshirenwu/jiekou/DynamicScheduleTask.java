@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
  * 注意：如果在数据库修改时格式出现错误，则定时任务会停止，即使重新修改正确后，也只能重新启动项目才能恢复。
  */
 @Configuration      //1.主要用于标记配置类，兼备Component的效果。
-@EnableScheduling   // 2.开启定时任务
+//@EnableScheduling   // 2.开启定时任务
 public class DynamicScheduleTask implements SchedulingConfigurer {
 
     /**

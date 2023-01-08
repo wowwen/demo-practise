@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 //@Component注解用于对那些比较中立的类进行注释；
 //相对与在持久层、业务层和控制层分别采用 @Repository、@Service 和 @Controller 对分层中的类进行注释
 @Component
-@EnableScheduling   // 1.开启定时任务
+//@EnableScheduling   // 1.开启定时任务
 @EnableAsync        // 2.开启多线程
 public class MultithreadScheduleTask {
 
