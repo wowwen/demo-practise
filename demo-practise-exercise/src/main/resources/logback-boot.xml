@@ -4,7 +4,6 @@
 	<springProperty scope="context" name="logPath" source="log.path" />
 	<springProperty scope="context" name="logName" source="log.name" />
 
-
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 		<charset>UTF-8</charset>
@@ -20,7 +19,7 @@
 		<encoder>
 		<charset>UTF-8</charset>
 			<pattern>
-				<pattern>server-job - %d{yyyy-MM-dd HH:mm:ss} [%level] [%class:%line] - %m %n
+				<pattern>server-job -[TRACEID:%X{traceId}] %d{yyyy-MM-dd HH:mm:ss} [%level] [%class:%line] - %m %n
 				</pattern>
 			</pattern>
 		</encoder>
@@ -31,7 +30,6 @@
 			<maxHistory>3</maxHistory>
 		</rollingPolicy>
 	</appender>
-
 
 	<root level="${logLevel}">
 		<appender-ref ref="STDOUT" />
