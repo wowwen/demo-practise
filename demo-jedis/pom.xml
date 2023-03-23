@@ -12,6 +12,10 @@
     <artifactId>demo-jedis</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <!-- redis采用jedis客户端 纯采用Jedis，不再在上面使用spring-boot-starter-data-redis(还有第二种方法可以使用starter包)-->
         <!-- 需要自己写jedis的配置类-->

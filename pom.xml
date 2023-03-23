@@ -20,7 +20,6 @@
         <module>demo-practise-consumer</module>
         <module>demo-practise-eureka</module>
         <module>demo-practise-provider-1</module>
-        <module>demo-practise-provider-2</module>
         <module>demo-practise-common</module>
         <module>demo-practise-exercise</module>
         <module>demo-practise-multidatasource-aop</module>
@@ -28,12 +27,16 @@
         <module>demo-jedis</module>
         <module>demo-practise-encode-param</module>
         <module>demo-lettuce</module>
+        <module>demo-practise-cache</module>
+        <module>demo-reactor</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
         <spring.cloud.alibaba.version>2.1.2.RELEASE</spring.cloud.alibaba.version>
+        <web.version>2.3.0.RELEASE</web.version>
+        <webflux.version>3.0.4</webflux.version>
         <lombok.version>1.18.10</lombok.version>
         <netty-all.version>4.1.50.Final</netty-all.version>
         <fastjson.version>1.2.73</fastjson.version>
@@ -60,23 +63,26 @@
             <!--                </exclusion>-->
             <!--            </exclusions>-->
         </dependency>
-        <!--添加web依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
-        <!--lombok-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
+
     </dependencies>
 
 
     <dependencyManagement>
         <dependencies>
+            <!--添加web依赖-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${web.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-webflux</artifactId>
+                <version>${webflux.version}</version>
+            </dependency>
+
             <!--lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>

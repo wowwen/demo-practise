@@ -50,4 +50,9 @@ public class RedissonBloomFilter {
         System.out.println("插入对象的个数：" + bloomFilter.count());
     }
 
+    @Test
+    public void testBoundValues(){
+
+    }
+
 }

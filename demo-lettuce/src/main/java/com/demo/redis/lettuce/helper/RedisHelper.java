@@ -1,9 +1,13 @@
 package com.demo.redis.lettuce.helper;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 /**
  * opsForZSet()：对应redis中的zset （有序集合）
@@ -16,10 +20,44 @@ import javax.annotation.Resource;
  * 原文链接：https://blog.csdn.net/MrYushiwen/article/details/122493709
  */
 @Component
+@Slf4j
 public class RedisHelper {
 
     @Resource
     private RedisTemplate redisTemplate;
+
+    /**
+     * 设置值
+     *
+     * @param key
+     * @param value
+     */
+    public boolean set(String key, Object value) {
+        try {
+            redisTemplate.boundValueOps(key).set(value);
+            return true;
+        } catch (Exception e) {
+            log.error("redis set error : ", e);
+            return false;
+        }
+    }
+
+    /**
+     * 获取值并转换为对应对象
+     *
+     * @param key
+     * @param clazz
+     * @return
+     */
+    public Object get(String key, Class clazz) {
+        try {
+            return Optional.ofNullable(redisTemplate.boundValueOps(key).get())
+                    .map(obj -> JSON.toJavaObject((JSONObject) obj, clazz)).orElse(null);
+        } catch (Exception e) {
+            log.error("redis get error : ", e);
+            return null;
+        }
+    }
 
 
 }
