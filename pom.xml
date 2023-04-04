@@ -17,7 +17,6 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>demo-practise-consumer</module>
         <module>demo-practise-eureka</module>
         <module>demo-practise-provider-1</module>
         <module>demo-practise-common</module>
@@ -44,6 +43,7 @@
         <hibernate-validator.version>6.0.14.Final</hibernate-validator.version>
         <org.eclipse.paho.client.mqttv3.version>1.2.5</org.eclipse.paho.client.mqttv3.version>
         <druid-spring-boot-starter.version>1.1.21</druid-spring-boot-starter.version>
+        <hutool.version>5.4.3</hutool.version>
     </properties>
 
     <dependencies>
@@ -142,6 +142,13 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+
+            <!--hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
 
         </dependencies>
