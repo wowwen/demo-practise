@@ -11,5 +11,25 @@
 
     <artifactId>demo-reactor</artifactId>
 
+    <dependencies>
+        <!--依赖reactor模块-->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+        </dependency>
+        <!--reactor测试工具集-->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--改善reactor调试和开发经验的工具-->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-tools</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

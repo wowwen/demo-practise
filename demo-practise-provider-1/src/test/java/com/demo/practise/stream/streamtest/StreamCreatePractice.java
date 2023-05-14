@@ -1,12 +1,31 @@
 package com.demo.practise.stream.streamtest;
 
+import cn.hutool.core.util.StrUtil;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
 
+import javax.validation.constraints.NotNull;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.jar.JarFile;
+import java.util.regex.Pattern;
 import java.util.stream.*;
 
 /**
@@ -410,4 +429,239 @@ public class StreamCreatePractice {
         }
     }
 
+    /**
+     * 创建流的其他方式
+     */
+    /**
+     * 从I/O通道种创建流
+     */
+    @Test
+    public void createFromIOBufferReader() throws IOException {
+        final String name = "明玉";
+        //从网络上读取文字内容
+        new BufferedReader(
+                new InputStreamReader(
+                        new URL("https://www.txtxzz.com/txt/download/NWJhZjI3YjIzYWQ3N2UwMTZiNDQwYWE3").openStream()))
+                .lines()
+                .filter(str -> StrUtil.contains(str, name))
+                .forEach(System.out::println);
+    }
+
+    /**
+     * 从文件系统获取下级路径及文件
+     * @throws IOException
+     */
+    @Test
+    public void fileWalk() throws IOException {
+        //获取文件系统的下级路径及其文件
+        Files.walk(FileSystems.getDefault().getPath("D:\\soft"))
+                .forEach(System.out::println);
+    }
+
+    /**
+     * 从文件系统获取文件内容
+     */
+    @Test
+    public void testFileLines() throws IOException {
+        Files.lines(FileSystems.getDefault().getPath("D:\\", "facesdk.log"))
+                .parallel() //并行的情况下，输出会乱序
+                .limit(200)
+                .forEach(System.out::println);
+    }
+
+    /**
+     * 读取JarFile为Stream
+     * @throws IOException
+     */
+    @Test
+    public void testJarFile() throws IOException {
+        new JarFile("D:\\spring-core-5.2.6.RELEASE.jar")
+                .stream()
+                .filter(jarEntry -> StrUtil.contains(jarEntry.getName(), "Method"))
+                .forEach(System.out::println);
+    }
+
+    /**
+     * 获取随机数字流
+     * 使用类Random的ints，longs，doubles的方法，根据传递不同的参数，可以产生无限数字流、有限数字流、以及指定范围的有限或无限数字流
+     * 示例如下
+     */
+    @Test
+    public void testRandomDoubles(){
+        double asDouble = new Random()
+                .doubles(30, 2, 45)
+                .peek(System.out::println)
+                .max()
+                .getAsDouble();
+        log.info("随机数的最大值为：{}", asDouble);
+    }
+
+    /**
+     * 位向量流
+     * 将BitSet中位向量为真的转换成Stream
+     * 示例如下
+     */
+    @Test
+    public void testBitSet(){
+        BitSet bitSet = new BitSet(8);
+        bitSet.set(1);
+        bitSet.set(4);
+        bitSet.set(6);
+        log.info("cardinality(基数)值：{}", bitSet.cardinality());
+        bitSet.stream().forEach(System.out::println);
+    }
+
+    /**
+     * 正则分割Stream
+     * 将字符串按照正则表达式分隔成子串流
+     * 示例如下
+     */
+    @Test
+    public void testPatternSplit(){
+        Pattern.compile(":")
+                .splitAsStream("boo:and:foo")
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
+    }
+
+    /**
+     * Stream 的其他方法
+     * 转为无序流
+     * 使用 unordered() 方法可将 Stream 随时转为无序流。
+     *
+     * 转换为Spliterator
+     * 使用 spliterator() 方法可将 Stream 转为 Spliterator，Spliterator 介绍请看 https://juejin.im/post/5cf2622de51d4550bf1ae7ff。
+     */
+
+
+    /**
+     * 综合练习
+     * 有以下数据，编写代码按照获得最佳男主角的演员次数排名，次数相同的按照参演年份正序排，并打印他所参演的电影
+     */
+    @Test
+    public void testComprehensiveExample(){
+        List<HundredFlowerAwards> list = new ArrayList<HundredFlowerAwards>();
+        list.add(new HundredFlowerAwards(2000, "AAA", "film1"));
+        list.add(new HundredFlowerAwards(2001, "BBB", "film2"));
+        list.add(new HundredFlowerAwards(2002, "CCC", "film3"));
+        list.add(new HundredFlowerAwards(2003, "AAA", "film4"));
+        list.stream()
+                .collect(Collectors.toMap(HundredFlowerAwards::getActorName, ActorInfo::new, ActorInfo::addFilmBatch))
+                .values()
+                .stream()
+                .sorted(new ActorComparator())
+                .forEach(System.out::println);
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public class HundredFlowerAwards implements Serializable{
+        private int year;
+        private String actorName;
+        private String filmName;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public class FilmInfo implements Serializable{
+        private int year;
+
+        private String name;
+    }
+
+    @Data
+    @NoArgsConstructor
+//    @RequiredArgsConstructor
+    public class ActorInfo implements Serializable{
+
+        @NotNull
+        private String actorName;
+
+        private List<FilmInfo> list = new ArrayList<>();
+
+        public ActorInfo(HundredFlowerAwards awards){
+            this.actorName = awards.getActorName();
+            this.list.add(new FilmInfo(awards.getYear(), awards.getFilmName()));
+        }
+
+        public ActorInfo addFilmInfo(FilmInfo info){
+            this.list.add(info);
+            return this;
+        }
+
+        public ActorInfo addFilmBatch(ActorInfo actorInfo){
+            this.list.addAll(actorInfo.getList());
+            return this;
+        }
+    }
+
+    public class ActorComparator implements Comparator<ActorInfo>{//比较器实现Comparator接口
+        @Override
+        public int compare(ActorInfo o1, ActorInfo o2) {
+            int i = o2.getList().size() - o1.getList().size();
+            int result = i == 0 ? o1.getList().stream().findFirst().get().getYear() - o2.getList().stream().findFirst().get().getYear() : i;
+
+            return result;
+        }
+
+    }
+
+    @Test
+    public void testForkJoinPool() throws InterruptedException {
+        //设置不同的值 -Djava.util.concurrent.ForkJoinPool.common.parallelism=1来限制ForkJoinPool提供的并行数
+        System.out.println("设置ForkJoinPool的并行数");
+        //构造一个10000个元素的集合
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            list.add(i);
+        }
+        //统计并行执行list的线程
+        Set<Thread> threadSet = new CopyOnWriteArraySet<>();
+        //并行执行
+        list.parallelStream().forEach(integer -> {
+            Thread thread = Thread.currentThread();
+            //统计并执行list的线程
+            threadSet.add(thread);
+        });
+        System.out.println("threadSet一共有" + threadSet.size() + "个线程");
+        System.out.println(threadSet);
+        System.out.println("系统一共有" + Runtime.getRuntime().availableProcessors() + "个CPU");
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < 100000; i++) {
+            list1.add(i);
+            list2.add(i);
+        }
+
+        Set<Thread> threadSet2 = new CopyOnWriteArraySet<>();
+        CountDownLatch countDownLatch = new CountDownLatch(2);
+        Thread thread1 = new Thread(() -> {
+            list1.parallelStream().forEach(integer -> {
+                Thread thread = Thread.currentThread();
+                threadSet2.add(thread);
+            });
+            countDownLatch.countDown();
+        });
+        Thread thread2 = new Thread(() -> {
+            list2.parallelStream().forEach(integer -> {
+                Thread thread = Thread.currentThread();
+                threadSet2.add(thread);
+            });
+            countDownLatch.countDown();
+        });
+
+        thread1.start();
+        thread2.start();
+        countDownLatch.await();
+        System.out.println("threadSet2一共有" + threadSet2.size() + "个线程");
+
+        System.out.println(threadSet);
+        System.out.println(threadSet2);
+
+        threadSet2.addAll(threadSet);
+        System.out.println("threadSet2一共有" + threadSet2.size() + "个线程");
+        System.out.println("系统一共有" + Runtime.getRuntime().availableProcessors() + "个CPU");
+    }
 }

@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  * 转换
  */
 @Slf4j
-public class StreamTerminalOperationMapPractice {
+public class StreamTerminalOperationMatchPractice {
 
     /**
      * boolean anyMatch(Predicate predicate);
