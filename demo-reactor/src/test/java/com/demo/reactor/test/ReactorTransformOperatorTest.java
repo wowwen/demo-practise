@@ -63,4 +63,52 @@ public class ReactorTransformOperatorTest {
         //输出
         //[1, 2, 3, 4, 5]
     }
+
+    /**
+     * Flux#collectMap
+     * 将Flux发出的所有元素按照键生成器和值生成器收集到Map中，之后由Mono发出。
+     * Flux提供了3个重载方法：它们的主要区别在于是否提供值生成器和初始的Map，意同Java Stream中的Collectors#toMap
+     * <K>    Mono<Map<K, T>> collectMap(Function<? super T, ? extends K> keyExtractor)
+     * <K, V> Mono<Map<K, V>> collectMap(Function<? super T, ? extends K> keyExtractor, Function<? super T, ? extends V> valueExtractor)
+     * <K, V> Mono<Map<K, V>> collectMap(Function<? super T, ? extends K> keyExtractor, Function<? super T, ? extends V> valueExtractor, Supplier<Map<K, V>> mapSupplier)
+     */
+    @Test
+    public void testCollectMap(){
+        Flux.just(1,2,3,4,5,3,1)
+                .collectMap(n -> n, n -> n + 100)
+                .subscribe(System.out::println);
+        //输出{1=101, 2=102, 3=103, 4=104, 5=105}
+    }
+
+    /**
+     * Flux#collectMultimap
+     * collectMultimap与collectMap的区别在于，map中的value类型不同。collectMultimap中是集合，collectMap是元素
+     * collectMultimap对于流中出现重复的key的value，加入到集合中，而collectMap做了替换。在这点上，reactor不如Java Stream中的Collectors#toMap方法，没有提供key重复时的合并函数。
+     * Flux的collectMultimap也提供了3个重载方法
+     * <K>    Mono<Map<K, Collection<T>>> collectMultimap(Function<? super T, ? extends K> keyExtractor)
+     * <K, V> Mono<Map<K, Collection<V>>> collectMultimap(Function<? super T, ? extends K> keyExtractor, Function<? super T, ? extends V> valueExtractor)
+     * <K, V> Mono<Map<K, Collection<V>>> collectMultimap(Function<? super T, ? extends K> keyExtractor, Function<? super T, ? extends V> valueExtractor, Supplier<Map<K, Collection<V>>> mapSupplier)
+     */
+    @Test
+    public void testCollectMultimap(){
+        Flux.just(1,2,3,4,5,3,1)
+                .collectMultimap(n -> n, n-> n+100)
+                .subscribe(System.out::println);
+        //{1=[101, 101], 2=[102], 3=[103, 103], 4=[104], 5=[105]}
+    }
+
+    /**
+     * Flux#collectSortedList
+     * 将Flux发出的元素在完成时进行排序，之后由Mono发出
+     * Flux提供了2个重载方法:
+     * Mono<List<T>> collectSortedList()
+     * Mono<List<T>> collectSortedList(@Nullable Comparator<? super T> comparator) --提供了比较器
+     */
+    @Test
+    public void testCollectSortedList(){
+        Flux.just(1,3,5,3,2,5,1,4)
+                .collectSortedList()
+                .subscribe(System.out::println);//[1, 1, 2, 3, 3, 4, 5, 5]
+    }
+
 }
