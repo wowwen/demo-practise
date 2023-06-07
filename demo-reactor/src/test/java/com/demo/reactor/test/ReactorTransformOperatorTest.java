@@ -3,7 +3,11 @@ package com.demo.reactor.test;
 import org.junit.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Scheduler;
+import reactor.core.scheduler.Schedulers;
 
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**
@@ -111,4 +115,96 @@ public class ReactorTransformOperatorTest {
                 .subscribe(System.out::println);//[1, 1, 2, 3, 3, 4, 5, 5]
     }
 
+    /**
+     * Flux#concatMap
+     * 将响应式流中元素按顺序转换为目标类型的响应式流，之后再将这些流连接起来。该方法提供了2个重载方法，传递的第2个参数为内部生成响应式流的预取数量。
+     */
+    @Test
+    public void testConcatMap(){
+        Flux.range(3, 8)
+                .concatMap(n -> Flux.just(n - 10, n, n + 10), 3)
+                .subscribe(System.out::println);
+    }
+
+    /**
+     * Flux#concatMapDelayError
+     * concatMapDelayError和concatMap区别在于，当内部生成响应式流发出error时，是否延迟响应error。
+     * 该方法提供了3个重载方法，支持传递参数：是否延迟发出错误和预取数量
+     */
+    @Test
+    public void testConcatMapDelayError(){
+        Flux.range(3, 8)
+                .concatMapDelayError(n -> {
+                    if (n == 4){
+                        return Flux.error(new NullPointerException());
+                    }
+                    return Flux.just(n -10, n , n + 10);
+                }).subscribe(System.out::println, System.err::println);
+
+    }
+
+    /**
+     * Flux#concatIterable
+     * concatIterable和concatMap的区别在于内部返回的类型不同， 一个为Iterable， 一个为响应式流
+     */
+    @Test
+    public void testConcatIterable(){
+        Flux.range(3, 8)
+                .publishOn(Schedulers.single())
+                .concatMapIterable(n -> {
+                    if (n == 4){
+                        throw new NullPointerException();
+                    }
+                    return Arrays.asList(n -10 , n, n + 10);
+                })
+                .onErrorContinue((e, n) -> System.err.println("数据：" + n + "发生错误：" + e))
+                .subscribe(System.out::println);
+    }
+
+    /**
+     * elapsed
+     * 收集响应式流中元素的间隔发出时间，转换为时间间隔和旧元素组测的Tuple2的响应流
+     */
+    @Test
+    public void testElapsed() throws InterruptedException {
+        Flux.interval(Duration.ofMillis(300))
+                .take(20)
+                .elapsed(Schedulers.parallel())
+                .subscribe(System.out::println);
+        Thread.sleep(7000);
+    }
+
+    /**
+     * expand
+     * 从上层节点逐层展开方式递归展开树形节点
+     */
+    @Test
+    public void testExpand(){
+        Flux.just(16, 18, 20)
+                .expand(n -> {
+                    if (n % 2 == 0){
+                        return Flux.just(n / 2);
+                    }else{
+                        return Flux.empty();
+                    }
+                })
+                .subscribe(System.out::println);
+    }
+
+    /**
+     * expandDeep
+     * 从上层节点逐个展开方式递归展开树形节点。expand与expandDeep的区别在于展开方式不同。另外它俩都提供了capacityHint指定递归时初始化容器的容量
+     */
+    @Test
+    public void testExpandDeep(){
+        Flux.just(16, 18, 20)
+                .expandDeep(n -> {
+                    if (n % 2 == 0){
+                        return Flux.just(n / 2);
+                    }else {
+                        return Flux.empty();
+                    }
+                })
+                .subscribe(System.out::println);
+    }
 }
