@@ -8,9 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo-practise-provider-1</artifactId>
+    <artifactId>demo-design-model</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-practise-provider-1</name>
+    <name>demo-design-model</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

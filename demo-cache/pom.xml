@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-practise-cache</artifactId>
+    <artifactId>demo-cache</artifactId>
 
     <dependencies>
         <dependency>

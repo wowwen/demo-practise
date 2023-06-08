@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-practise-exercise</artifactId>
+    <artifactId>demo-exercise</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>demo-practise-common</artifactId>
+            <artifactId>demo-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
