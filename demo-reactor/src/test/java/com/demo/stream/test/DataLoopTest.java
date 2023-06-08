@@ -1,4 +1,4 @@
-package com.demo.practise.stream.streamtest;
+package com.demo.stream.test;
 
 /**
  * ©Copyright ©1968-2020 Midea Group,IT

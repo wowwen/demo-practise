@@ -1,4 +1,4 @@
-package com.demo.practise.stream.streamtest;
+package com.demo.stream.test;
 
 import cn.hutool.core.lang.hash.Hash32;
 import lombok.extern.slf4j.Slf4j;
