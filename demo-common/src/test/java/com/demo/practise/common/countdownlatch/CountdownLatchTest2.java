@@ -5,7 +5,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: CountdownLatchTest2
  * @Author: jiangyw8

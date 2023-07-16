@@ -9,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
- *
  * @FileName: StrategyTest
  * @Author: jiangyw8
  * @Date: 2020-11-26 16:25

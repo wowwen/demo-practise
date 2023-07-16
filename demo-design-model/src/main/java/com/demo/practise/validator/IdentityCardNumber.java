@@ -5,7 +5,6 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: IdentityCardNumber
  * @Author: jiangyw8

@@ -1,7 +1,6 @@
 package com.demo.stream.test;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: DataLoopTest
  * @Author: jiangyw8

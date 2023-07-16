@@ -1,4 +1,4 @@
-package com.example.dem.exercise.test;
+package com.demo.optional.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,11 +19,11 @@ public class OptionalDemo {
 
     @Test
     public void testOptional() throws Exception {
-        //创建一个包装对象为空的Optional对象
+        //工厂方法：创建一个包装对象为空的Optional对象
         Optional<Object> empty = Optional.empty();
-        //创建包装对象值非空的Optional对象
+        //工厂方法：创建包装对象值非空的Optional对象
         Optional<Person> zhangsan = Optional.of(Person.builder().name("zhangsan").age(18).build());
-        //创建包装对象值允许为空也可以不为空的Optional对象
+        //工厂方法：创建包装对象值允许为空也可以不为空的Optional对象
         Optional<String> o = Optional.ofNullable(null);
         Optional<Person> person = Optional.ofNullable(Person.builder().build());
         Optional<Person> lisi = Optional.ofNullable(Person.builder().name("lisi").age(20).build());
@@ -74,11 +74,12 @@ public class OptionalDemo {
         //注意此处需要在Optional的参数中指定Supplier<T>才能使用Person::new,否则会报不是一个函数式接口，同时Person还要加上无参构造
         Optional<Supplier<Person>> supplierOpt = Optional.ofNullable(Person::new);
         //调用supplier.get()方法，此时才会调用对象的构造方法，即获得到真正对象.如果前面的ofNullable()中的对象不为空，则返回前面的对象；
-        // 如果前面的对象为空，则返回orElseGet()中的对象的get方法获取到的对象
+        //如果前面的对象为空，则返回orElseGet()中的对象的get方法获取到的对象
         //注意，supplierOpt.get()是从Optional<Supplier<Person>>中获取Supplier对象
         //说真的对于Supplier对象我也懵逼了一下，去网上简单查阅才得知 Supplier也是创建对象的一种方式,
         // 简单来说，Suppiler是一个接口，是类似Spring的懒加载，声明之后并不会占用内存，只有执行了get()方法之后，才会调用构造方法创建出对象
         // 创建对象的语法的话就是Supplier<Person> supPerson= Person::new; 需要使用时supPerson.get()即可
+        //如果计算备选值在计算上太过繁琐，即可使用 orElseGet 方法。该方法接受一个Supplier 对象，只有在 Optional 对象真正为空时才会调用。
         Person person2 = Optional.ofNullable(Person.builder().build()).orElseGet(supplierOpt.get());
 
         //Optional.orElseThrow()方法(为空返回异常)

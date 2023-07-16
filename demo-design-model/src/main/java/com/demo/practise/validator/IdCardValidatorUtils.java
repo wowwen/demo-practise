@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: IdCardValidatorUtils
  * @Author: jiangyw8

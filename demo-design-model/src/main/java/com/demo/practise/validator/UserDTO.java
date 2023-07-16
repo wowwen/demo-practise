@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: UserDTO
  * @Author: jiangyw8

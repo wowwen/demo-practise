@@ -5,7 +5,6 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: PushCallback
  * @Author: jiangyw8

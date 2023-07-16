@@ -8,7 +8,6 @@ import org.apache.http.HttpStatus;
 import java.io.Serializable;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: RspDTO
  * @Author: jiangyw8

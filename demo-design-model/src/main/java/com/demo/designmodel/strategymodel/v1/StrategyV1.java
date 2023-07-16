@@ -1,7 +1,6 @@
 package com.demo.designmodel.strategymodel.v1;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: Strategy
  * @Author: jiangyw8

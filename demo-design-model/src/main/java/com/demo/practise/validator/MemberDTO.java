@@ -6,7 +6,6 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: member
  * @Author: jiangyw8

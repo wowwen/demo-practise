@@ -3,7 +3,6 @@ package com.demo.practise.validator;
 import javax.validation.groups.Default;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: Update
  * @Author: jiangyw8

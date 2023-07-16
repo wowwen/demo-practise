@@ -9,7 +9,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import java.util.concurrent.ScheduledExecutorService;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: ClientMQTT
  * @Author: jiangyw8

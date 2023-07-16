@@ -5,7 +5,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import lombok.Data;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: BizException
  * @Author: jiangyw8

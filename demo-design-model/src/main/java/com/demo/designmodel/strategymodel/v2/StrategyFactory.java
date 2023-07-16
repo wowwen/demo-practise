@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: StrategyFactory
  * @Author: jiangyw8

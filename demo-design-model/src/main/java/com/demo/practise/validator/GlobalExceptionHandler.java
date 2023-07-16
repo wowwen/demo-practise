@@ -13,7 +13,6 @@ import javax.validation.ConstraintViolationException;
 import javax.xml.bind.ValidationException;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: GlobalExceptionHandler
  * @Author: jiangyw8

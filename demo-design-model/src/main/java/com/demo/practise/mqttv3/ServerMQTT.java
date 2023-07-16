@@ -4,7 +4,6 @@ import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: ServerMQTT
  * @Author: jiangyw8

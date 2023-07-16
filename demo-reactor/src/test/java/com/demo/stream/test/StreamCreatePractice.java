@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 
 import javax.validation.constraints.NotNull;
@@ -29,7 +29,6 @@ import java.util.regex.Pattern;
 import java.util.stream.*;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,ITf
  *
  * @FileName: StreamPractice
  * @Author: jiangyw8

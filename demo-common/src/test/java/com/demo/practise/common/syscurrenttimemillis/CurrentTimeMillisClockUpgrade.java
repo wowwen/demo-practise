@@ -4,7 +4,6 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: CurrentTimeMillisClockUpgrade
  * @Author: jiangyw8

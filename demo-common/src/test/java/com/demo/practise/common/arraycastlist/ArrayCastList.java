@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: ArrayCastList
  * @Author: jiangyw8

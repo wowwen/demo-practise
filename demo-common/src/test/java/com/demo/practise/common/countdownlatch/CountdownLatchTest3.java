@@ -3,7 +3,6 @@ package com.demo.practise.common.countdownlatch;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: CountdownLatchTest3
  * @Author: jiangyw8

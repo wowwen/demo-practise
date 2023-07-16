@@ -3,7 +3,6 @@ package com.demo.practise.validator;
 import org.springframework.stereotype.Service;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: UserServiceImpl
  * @Author: jiangyw8

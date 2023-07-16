@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: UserControllerTest
  * @Author: jiangyw8

@@ -6,7 +6,6 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: Scores
  * @Author: jiangyw8

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: UserDTORest
  * @Author: jiangyw8

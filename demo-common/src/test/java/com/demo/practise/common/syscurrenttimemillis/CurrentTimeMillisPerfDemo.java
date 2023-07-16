@@ -3,7 +3,6 @@ package com.demo.practise.common.syscurrenttimemillis;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: CurrentTimeMillisPerfDemo
  * @Author: jiangyw8

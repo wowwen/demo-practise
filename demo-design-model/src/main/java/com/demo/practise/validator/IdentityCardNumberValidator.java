@@ -4,7 +4,6 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: IdentityCardNumberValidator
  * @Author: jiangyw8

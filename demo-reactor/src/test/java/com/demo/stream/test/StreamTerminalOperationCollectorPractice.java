@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 @Slf4j
 public class StreamTerminalOperationCollectorPractice {
     /**
-     * R collect(Supplier supplier, BiConsumer accumulator, BiConsumer combiner);
+     * R collect(Supplier supplier, BiConsumer accumulator, BiConsumer combiner);又叫收集器。
      * 对此流的元素执行 mutable reduction操作。
      * 传递了3个参数，
      * 参数1为创建新结果容器的函数；

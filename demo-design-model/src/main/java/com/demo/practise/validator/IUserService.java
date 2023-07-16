@@ -1,7 +1,6 @@
 package com.demo.practise.validator;
 
 /**
- * ©Copyright ©1968-2020 Midea Group,IT
  *
  * @FileName: IUserService
  * @Author: jiangyw8
