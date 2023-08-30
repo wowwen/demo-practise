@@ -188,7 +188,7 @@ public class StreamCreatePractice {
             }
         }))));
 
-        //转换成其他集合/数组
+        //转换成其他集合/数组(toCollection接受一个函数作为参数，来创建集合)
         //转成HashSet
         HashSet<Person> personHashSet = personList.stream().collect(Collectors.toCollection(HashSet::new));
         //转成Set

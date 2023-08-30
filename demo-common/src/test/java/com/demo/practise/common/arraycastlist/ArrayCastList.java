@@ -27,7 +27,6 @@ public class ArrayCastList {
      *
      * 使用场景：Arrays.asList(strArray)方式仅能用在将数组转换为List后，不需要增删其中的值，仅作为数据源读取使用。
      */
-
     @Test
     public void testArrayCast2ListError(){
         String[] strArray = new String[2];

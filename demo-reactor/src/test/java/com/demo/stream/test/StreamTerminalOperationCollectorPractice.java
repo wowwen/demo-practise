@@ -272,9 +272,9 @@ public class StreamTerminalOperationCollectorPractice {
      */
     @Test
     public void joining(){
-        //使用collector连接字符串
-        log.info("连接字符串为：{}", Stream.of("a", "b", "c").collect(Collectors.joining(" ", "Java," ,"!")));
-        //连接字符串为：Java,a b c!
+        //使用collector连接字符串，组装成想要的格式，该方法可以方便地从一个流得到一个字符串，允许用户提供分隔符（用以分隔元素）、前缀和后缀。
+        log.info("连接字符串为：{}", Stream.of("a", "b", "c").collect(Collectors.joining(",", "【" ,"】")));
+        //连接字符串为：【a,b,c】
     }
 
     /**

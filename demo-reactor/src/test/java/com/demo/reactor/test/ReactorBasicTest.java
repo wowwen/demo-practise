@@ -21,7 +21,7 @@ public class ReactorBasicTest {
         Mono.justOrEmpty(str).subscribe(System.out::println);
         Mono.justOrEmpty(optional).subscribe(System.out::println);
 
-        Flux.just("hello", "world").subscribe(System.out::println);
+        Flux.just("hello", " ").subscribe(System.out::println);
         Flux.just("hello").subscribe(System.out::println);
     }
 

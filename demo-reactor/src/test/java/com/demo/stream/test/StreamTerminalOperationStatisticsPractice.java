@@ -105,5 +105,7 @@ public class StreamTerminalOperationStatisticsPractice {
     @Test
     public void summaryStatisticsLongStream(){
         LongSummaryStatistics longSummaryStatistics = LongStream.of(1, 2, 3).summaryStatistics();
+        longSummaryStatistics.accept(1);//新增一个值
+        System.out.println("++++");
     }
 }
