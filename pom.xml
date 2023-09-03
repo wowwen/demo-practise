@@ -28,6 +28,7 @@
         <module>demo-lettuce</module>
         <module>demo-cache</module>
         <module>demo-reactor</module>
+        <module>demo-aop</module>
     </modules>
 
     <properties>
