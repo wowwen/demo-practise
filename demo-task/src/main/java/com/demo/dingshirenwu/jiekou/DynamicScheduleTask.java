@@ -1,4 +1,4 @@
-package com.demo.exercise.dingshirenwu.jiekou;
+package com.demo.dingshirenwu.jiekou;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
  * @description 基于接口（SchedulingConfigurer）创建定时任务, 读取数据库的配置，修改配置后可以不用重启应用；
  * 注意：如果在数据库修改时格式出现错误，则定时任务会停止，即使重新修改正确后，也只能重新启动项目才能恢复。
  */
-@Configuration      //1.主要用于标记配置类，兼备Component的效果。
+//@Configuration      //1.主要用于标记配置类，兼备Component的效果。
 //@EnableScheduling   // 2.开启定时任务
 public class DynamicScheduleTask implements SchedulingConfigurer {
 
@@ -40,7 +40,7 @@ public class DynamicScheduleTask implements SchedulingConfigurer {
     public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
         scheduledTaskRegistrar.addTriggerTask(
                 //1.添加任务内容(Runnable)
-                () -> System.out.println("执行动态定时任务: " + LocalDateTime.now().toLocalTime()),
+                () -> System.out.println("数据库接口执行动态定时任务: " + LocalDateTime.now().toLocalTime()),
                 //2.设置执行周期(Trigger)
                 triggerContext -> {
                     //2.1 从数据库获取执行周期

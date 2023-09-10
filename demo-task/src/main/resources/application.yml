@@ -3,11 +3,6 @@ spring:
     name: exercise
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/db1?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/socks?serverTimezone=Asia/Shanghai
     username: root
     password: root
-
-secret:
-  privateKey:
-    h5: 123456
-    web: 8VBkO5amPcPrXV3m

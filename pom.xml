@@ -29,6 +29,7 @@
         <module>demo-cache</module>
         <module>demo-reactor</module>
         <module>demo-aop</module>
+        <module>demo-task</module>
     </modules>
 
     <properties>

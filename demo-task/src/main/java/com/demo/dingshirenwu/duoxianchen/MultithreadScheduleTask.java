@@ -1,4 +1,4 @@
-package com.demo.exercise.dingshirenwu.duoxianchen;
+package com.demo.dingshirenwu.duoxianchen;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -16,13 +16,38 @@ import java.time.LocalDateTime;
 //@Component注解用于对那些比较中立的类进行注释；
 //相对与在持久层、业务层和控制层分别采用 @Repository、@Service 和 @Controller 对分层中的类进行注释
 @Component
-//@EnableScheduling   // 1.开启定时任务
-@EnableAsync        // 2.开启多线程
+//@EnableScheduling   // 1.开启定时任务.情景2注释掉
+//@EnableAsync        // 2.开启多线程   情景2注释掉
 public class MultithreadScheduleTask {
-
-    //注：这里的@Async注解很关键
+    //情景2
+    //注：这里的@Async注解很关键，通过此注解创建异步线程.如果只注解@Async而不开启上面的@EnableAsync注解，则first()任务与second()任务再同一个线程中执行。另外，即使本类上的@EnableScheduling被注释了
+    //但是在方法上有注解@Scheduled，还是会定期执行。
+    //由于第一个定时任务first()中线程sleep了10s，超过了second()中的@Scheduled(fixedDelay = 2000)，所以first()执行完之后，会立即执行second（）；而second执行完之后，second没有sleep，所以再执行时
+    //先是first上面的@Scheduled(fixedDelay = 1000)要延迟1s，再执行。
+    //执行结果:
+    //第一个定时任务开始于：12:21:38.455
+    //线程号：pool-1-thread-1
+    //
+    //2023-09-10 12:21:38.460  INFO 110852 --- [           main] com.demo.dingshirenwu.TaskApplication    : Started TaskApplication in 3.984 seconds (JVM running for 5.499)
+    //第二个定时任务开始于：12:21:48.458
+    //线程号：pool-1-thread-1
+    //
+    //2023-09-10 12:21:48.459  INFO 110852 --- [pool-1-thread-1] c.d.d.dynamic.update.ScheduleTask        : current time:12:21:48.459
+    //第一个定时任务开始于：12:21:49.474
+    //线程号：pool-1-thread-1
+    //
+    //2023-09-10 12:21:59.487  INFO 110852 --- [pool-1-thread-1] c.d.d.dynamic.update.ScheduleTask        : current time:12:21:59.487
+    //第二个定时任务开始于：12:21:59.488
+    //线程号：pool-1-thread-1
+    //
+    //2023-09-10 12:22:00.007  INFO 110852 --- [pool-1-thread-1] c.d.d.dynamic.update.ScheduleTask        : current time:12:22:00.007
+    //第一个定时任务开始于：12:22:00.502
+    //线程号：pool-1-thread-1
+    //
+    //第二个定时任务开始于：12:22:10.517
+    //线程号：pool-1-thread-1
     @Async
-    @Scheduled(fixedDelay = 1000) //间隔1秒执行
+//    @Scheduled(fixedDelay = 1000) //间隔1秒执行
     public void first() throws InterruptedException {
         System.out.println("第一个定时任务开始于：" + LocalDateTime.now().toLocalTime() + "\r\n线程号：" + Thread.currentThread().getName());
         System.out.println();
@@ -31,7 +56,7 @@ public class MultithreadScheduleTask {
     }
 
     @Async
-    @Scheduled(fixedDelay = 2000)
+//    @Scheduled(fixedDelay = 2000)
     public void second(){
         System.out.println("第二个定时任务开始于：" + LocalDateTime.now().toLocalTime() + "\r\n线程号：" + Thread.currentThread().getName());
         System.out.println();

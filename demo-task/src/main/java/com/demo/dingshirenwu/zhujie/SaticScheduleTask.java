@@ -1,4 +1,4 @@
-package com.demo.exercise.dingshirenwu.zhujie;
+package com.demo.dingshirenwu.zhujie;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;

@@ -1,4 +1,4 @@
-package com.demo.exercise.dingshirenwu.zhujie;
+package com.demo.dingshirenwu.zhujie;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
