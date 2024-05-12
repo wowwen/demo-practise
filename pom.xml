@@ -30,6 +30,8 @@
         <module>demo-reactor</module>
         <module>demo-aop</module>
         <module>demo-task</module>
+        <module>demo-annotation</module>
+        <module>demo-websocket</module>
     </modules>
 
     <properties>
@@ -79,7 +81,7 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${web.version}</version>
             </dependency>
-
+            <!--Spring webflux的依赖，可以和spring mvc一起使用-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-webflux</artifactId>

@@ -1,0 +1,12 @@
+server:
+  port: 8099
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: annotation
+
+  main:
+    allow-bean-definition-overriding: true
+
