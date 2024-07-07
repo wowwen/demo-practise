@@ -21,17 +21,16 @@
         <module>demo-design-model</module>
         <module>demo-common</module>
         <module>demo-exercise</module>
-        <module>demo-multidatasource-aop</module>
-        <module>demo-multidatasource-fenbao</module>
-        <module>demo-jedis</module>
         <module>demo-encode-param</module>
-        <module>demo-lettuce</module>
         <module>demo-cache</module>
         <module>demo-reactor</module>
         <module>demo-aop</module>
         <module>demo-task</module>
         <module>demo-annotation</module>
         <module>demo-websocket</module>
+        <module>demo-zookeeper</module>
+        <module>demo-redis</module>
+        <module>demo-mysql</module>
     </modules>
 
     <properties>
