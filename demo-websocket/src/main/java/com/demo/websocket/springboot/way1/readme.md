@@ -1,0 +1,1 @@
+这是一个最简单的websocket示例，websocket客户端请求/websocket/{sid}与服务端建立连接，然后客户端可以给服务端发送消息，也可以用controller的方法向客户端发送消息

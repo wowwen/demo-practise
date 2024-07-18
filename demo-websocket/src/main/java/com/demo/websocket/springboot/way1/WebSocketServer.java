@@ -1,4 +1,4 @@
-package com.demo.websocket.springboot.server;
+package com.demo.websocket.springboot.way1;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,23 +12,26 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
- * @ ServerEndpoint 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个websocket服务器端,
+ * @ServerEndpoint 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个websocket服务器端,
+ * 如果是做一个客户端，则注解为@ClientEndpoint
  * 注解的值将被用于监听用户连接的终端访问URL地址,客户端可以通过这个URL来连接到WebSocket服务器端
  */
 
 /**
- * 由于使用的是内嵌容器，而内嵌容器需要被Spring管理并初始化，所以需要给WebSocketServer加上@Component这么一个注解
+ * @author jans9
+ * 由于使用的是内嵌容器，而内嵌容器需要被Spring管理并初始化，所以需要给WebSocketServer加上@Component这么一个注解。
+ * websocket连接时调用这里的路径进行连接
  */
 @Component
 @Service
 @ServerEndpoint("/websocket/{sid}")
 public class WebSocketServer {
-    private static Logger log = LoggerFactory.getLogger(WebSocketServer.class);
+    private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
 
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
     private static int onlineCount = 0;
     //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
-    private static CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<>();
+    private static final CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<>();
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
     //接收sid

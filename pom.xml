@@ -41,7 +41,7 @@
         <webflux.version>3.0.4</webflux.version>
         <lombok.version>1.18.10</lombok.version>
         <netty-all.version>4.1.50.Final</netty-all.version>
-        <fastjson.version>1.2.73</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <guava.version>24.1-jre</guava.version>
         <hibernate-validator.version>6.0.14.Final</hibernate-validator.version>
         <org.eclipse.paho.client.mqttv3.version>1.2.5</org.eclipse.paho.client.mqttv3.version>

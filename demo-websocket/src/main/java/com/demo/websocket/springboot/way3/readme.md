@@ -1,0 +1,3 @@
+此示例为采用Spring封装的方式使用websocket，引入的是org.springframework.web.socket.WebSocketSession类。面对websocket高并发时的session
+状态不一致的问题，同样可以采用加锁的方法处理，但是加锁后后面的等待时间会加长。另外也可以采用Spring封装的ConcurrentWebSocketSessionDecorator
+来处理，ConcurrentWebSocketSessionDecorator在session的上又封装了一层。

@@ -1,3 +1,9 @@
+server:
+  port: 9091
+  servlet:
+    context-path: /websocket
+  shutdown: graceful
+
 spring:
   application:
     name: websocket
