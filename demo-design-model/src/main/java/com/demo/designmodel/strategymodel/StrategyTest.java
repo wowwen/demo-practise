@@ -15,7 +15,6 @@ import java.util.Date;
  * @Description: 策略模式优化if-else
  */
 //假设有这么一个需求：
-//
 //        一个电商系统，当用户消费满1000 金额，可以根据用户VIP等级，享受打折优惠。根据用户VIP等级，计算出用户最终的费用。
 //
 //        普通会员 不打折
@@ -76,15 +75,12 @@ public class StrategyTest {
 
         if (money >= 1000) {
             if (type == UserType.SILVER_VIP.getCode()) {
-
                 System.out.println("白银会员 优惠50元");
                 result = money - 50;
             } else if (type == UserType.GOLD_VIP.getCode()) {
-
                 System.out.println("黄金会员 8折");
                 result = money * 0.8;
             } else if (type == UserType.PLATINUM_VIP.getCode()) {
-
                 System.out.println("白金会员 优惠50元，再打7折");
                 result = (money - 50) * 0.7;
             } else {
@@ -101,19 +97,15 @@ public class StrategyTest {
 
         if (money >= 1000) {
             if (type == UserType.SILVER_VIP.getCode()) {
-
                 result = new SilverStrategyV1().compute(money);
             } else if (type == UserType.GOLD_VIP.getCode()) {
-
                 result = new GoldStrategyV1().compute(money);
             } else if (type == UserType.PLATINUM_VIP.getCode()) {
-
                 result = new PlatinumStrategyV1().compute(money);
             } else {
                 result = new OrdinaryStrategyV1().compute(money);
             }
         }
-
         return result;
     }
     //策略模式V1.1
