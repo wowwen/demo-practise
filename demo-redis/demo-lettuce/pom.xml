@@ -34,12 +34,23 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+        <!--使用Lettuce需要同时依赖commons-pool2-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
         <!--redisson-->
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
             <version>3.13.6</version>
         </dependency>
+        <!--采用Lettuce的starter包，则不能再依赖Redission的starter包，否则报错-->
+<!--        <dependency>-->
+<!--            <groupId>org.redisson</groupId>-->
+<!--            <artifactId>redisson-spring-boot-starter</artifactId>-->
+<!--            <version>2.15.2</version>-->
+<!--        </dependency>-->
         <!-- redis -->
     </dependencies>
 </project>

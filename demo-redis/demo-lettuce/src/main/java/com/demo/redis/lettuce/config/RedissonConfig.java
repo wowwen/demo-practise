@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author jans9
+ */
 @Configuration
 public class RedissonConfig {
-    @Value("${spring.datasource.redis.host}")
+    @Value("${spring.redis.host}")
     private String host;
-    @Value("${spring.datasource.redis.port}")
+    @Value("${spring.redis.port}")
     private String port;
 
     @Bean
@@ -20,7 +23,9 @@ public class RedissonConfig {
         // redis为单机模式
         // starter依赖进来的redisson要以redis://开头，其他不用
         config.useSingleServer().setAddress("redis://" + host + ":" + port);
-        return Redisson.create(config);
+        RedissonClient redissonClient = Redisson.create(config);
+        System.out.println("配置redission完成");
+        return redissonClient;
     }
 
 }
