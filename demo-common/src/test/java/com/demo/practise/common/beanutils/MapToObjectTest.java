@@ -3,16 +3,16 @@ package com.demo.practise.common.beanutils;
 import com.google.common.collect.Maps;
 import lombok.Builder;
 import lombok.Data;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = MapToObjectTest.class)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest(classes = MapToObjectTest.class) springboot升级成2.6.3后，已经由junit4迁移到JUnit Jupiter（JUnit
+// 5），所以这两个注解不需要了。同时项目中只应存在Junit4或者JUnit Jupiter，同时存在可能导致冲突
 public class MapToObjectTest {
 
     @Test

@@ -147,8 +147,9 @@ public class EncryptUtils {
         int salt = 0;
         while (true) {
             salt = (int) (Math.random() * 1000000);
-            if (salt < 1000000 && salt > 99999)
+            if (salt < 1000000 && salt > 99999) {
                 break;
+            }
         }
         return salt;
     }

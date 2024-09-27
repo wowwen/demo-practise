@@ -1,7 +1,8 @@
 package com.demo.practise.common.arraycastlist;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+//import org.junit.Test;
+//import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
@@ -16,7 +17,7 @@ import java.util.stream.Stream;
  * @Date: 2020-10-26 9:24
  * @Description: 数组转List的方式对比
  */
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)  springboot升级到2.6.0后，测试类已经不需要这个注解
 public class ArrayCastList {
 
     /**
