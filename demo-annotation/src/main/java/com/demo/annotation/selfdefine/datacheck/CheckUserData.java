@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  */
 @Documented
 @Target({ElementType.METHOD,ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.RUNTIME) //指定了注解的保留策略
 public @interface CheckUserData {
 
     /**

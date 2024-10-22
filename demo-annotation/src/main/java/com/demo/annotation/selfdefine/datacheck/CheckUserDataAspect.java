@@ -27,6 +27,7 @@ public class CheckUserDataAspect {
     public Object dataAspect(ProceedingJoinPoint point) throws Throwable {
         //step1:从http header中取userId,然后从数据库或者缓存查用户所有的角色
         List<Integer> roleTypes = new ArrayList<>();
+        //这里是模拟获取到的用户角色类型
         roleTypes.add(1);
 
         //step2:获取方法上的注解
