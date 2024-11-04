@@ -8,5 +8,5 @@ import com.demo.annotation.selfdefine.datacheck.CheckUserData;
  * @description
  */
 @CheckUserData//这里只是随便举例，说明父类的注解没有@Inherited时，子类继承父类，获取子类上的注解的时候，只能获取到子类的，获取不到父类的
-public class BSonExtendsBFatherInterfaceNoInherited extends BFatherInterfaceNoInherited {
+public class BSonExtendsBFatherClassNoInherited extends BFatherClassNoInherited {
 }
