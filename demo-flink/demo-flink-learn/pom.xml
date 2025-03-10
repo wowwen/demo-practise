@@ -87,6 +87,32 @@
             </exclusions>
         </dependency>
 
+        <!--代码中使用Table API,必须引入桥接器，主要负责Table API和下层datastream api的连接，分为scala版和Java版-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-api-java-bridge</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!--idea中运行table api和sql,还需以下依赖-->
+        <!--1.17新版-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner-loader</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-runtime</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!--新版本独立出来了-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-files</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
 
 
     </dependencies>
