@@ -1,7 +1,7 @@
 package com.demo.annotation.jsr250.inherited;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/11/4 18:03
  * @description
  */

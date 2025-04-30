@@ -3,7 +3,7 @@ package com.demo.annotation.selfdefine.datacheck;
 import java.lang.annotation.*;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/8/5 18:23
  * @description
  */

@@ -3,7 +3,7 @@ package com.demo.annotation.jsr250.inherited;
 import com.demo.annotation.selfdefine.datacheck.CheckUserData;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/11/4 18:04
  * @description
  */

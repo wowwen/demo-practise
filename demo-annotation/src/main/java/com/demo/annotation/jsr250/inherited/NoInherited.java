@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/10/23 21:59
  * @description 此注解不带@Inherited注解
  */

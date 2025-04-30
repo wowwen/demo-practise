@@ -3,7 +3,7 @@ package com.demo.annotation.selfdefine.timezone;
 import java.lang.annotation.*;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/10/22 22:52
  * @description
  */
