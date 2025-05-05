@@ -26,12 +26,17 @@ import java.util.HashMap;
 public class MyExceptionHandler {
     //拦截所有的空指针异常，进行统一的数据返回
     @ExceptionHandler(NullPointerException.class) //统一处理控制针异常
-    @ResponseBody //返回数据
+    /**
+     *  返回数据
+     */
+    @ResponseBody
     public HashMap<String, Object> nullExceptionHandler(NullPointerException e){
         HashMap<String, Object> result = new HashMap<>();
-        result.put("code", "-1"); //与前端定义的异常状态码
+        //与前端定义的异常状态码
+        result.put("code", "-1");
         result.put("msg", "空指针异常：" + e.getMessage());
-        result.put("data", null); //返回的数据
+        //返回的数据
+        result.put("data", null);
         return result;
     }
 

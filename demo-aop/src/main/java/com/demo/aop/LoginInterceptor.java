@@ -33,13 +33,13 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //用户登录业务判断
         HttpSession session = request.getSession(false);
-        if (session != null && session.getAttribute("userInfo") != null){
+//        if (session != null && session.getAttribute("userInfo") != null){
             return true; //验证成功，继续controller的流程
-        }
+//        }
         //可以跳转登录界面或者返回401/403等没有权限码
-        response.sendRedirect("/login.html");//跳转到登录页面
-
-        return false;
+//        response.sendRedirect("/login.html");//跳转到登录页面
+//
+//        return false;
     }
 
 }

@@ -11,21 +11,30 @@ import org.springframework.stereotype.Component;
  * AOP的功能1：统一认证
  * 使用原生AOP实现统一拦截
  */
-@Aspect //说明此类为一个切面
+
+/**
+ * 说明此类为一个切面
+ */
+@Aspect
 @Component
 public class UserAspect {
-
-    //定义切点，这里使用Aspect表达式语法
+    /**
+     * 定义切点，这里使用Aspect表达式语法
+     */
     @Pointcut("execution(* com.demo.aop.controller.UserController.*(..))")
     public void pointcut(){}
 
-    //前置通知
+    /**
+     * 前置通知
+     */
     @Before("pointcut()")
     public void beforeAdvice(){
         System.out.println("执行了前置通知");
     }
 
-    //环绕通知
+    /**
+     *  环绕通知
+     */
     @Around("pointcut()")
     public Object aroundAdvice(ProceedingJoinPoint joinPoint){
         System.out.println("进入环绕通知");
