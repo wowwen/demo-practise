@@ -1,0 +1,214 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: gateway
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 1000 #网关连接超时 ms
+      default-filters:
+        - PreserveHostHeader #将Host的Header保留起来，透传给后端，防止host被修改为localhost
+#        - name: AddRequestParameter
+#          args: #FilterDefinition类中args属性类型为一个Map<String, String> args，所以这里只能写args
+#            name: P-Default
+#            value: 123
+#        - name: AddRequestParameter
+#          args: #FilterDefinition类中args属性类型为一个Map<String, String> args，所以这里只能写args
+#            name: P-Default-1
+#            value: abc
+#        - AddRequestHeader=X-Request-Default,Gateway
+#        - name: AddRequestHeader
+#          args:
+#            name: X-Request-Default
+#            value: Gateway-Default
+
+#      enabled: true #不填此选项，默认就是true
+      routes:
+#        - id: service-01 #路由唯一id
+#          uri: http://localhost:8099 #目标地址URI
+#          predicates: #断言，为真则匹配成功；另一种写法也可以是predicates： Path=/systemapi/system/**,Method=GET,POST
+#            - After=2021-11-29T17:42:47.000+08:00[Asia/Shanghai] #标准UTC,匹配上海时间2021-11-29T17:42:47.000以后的请求才会被转发，这个时间之前的请求，则会报错404
+#            - Cookie=chocolate, ch.p #接收两个参数，一个是 Cookie 名称,一个是正则表达式.匹配具有名为chocolate的cookie，且该 cookie的值以 ch.p开头的请求
+#            - Header=X-Request-Id, \d+ #也是接收 2 个参数，一个 header 中属性名称和一个正则表达式.表示如果请求具有名称X-Request-Id与\d+正则表达式（即，它具有一位或多位数字的值）匹配的请求头，则此路由匹配。
+#            - Host=**.somehost.org,**.anotherhost.org #接收一组参数，一组匹配的域名列表.?：匹配一个字符，*：匹配0个或多个字符，**：匹配0个或多个目录
+#            - Method=GET,POST #一个或多个参数，使用HTTP方法来匹配
+#            - Path=/system/system/** #一个匹配路径的参数。使用请求路径来匹配
+#            - Query=green,gree. #接受两个参数，请求参数和可选的regexp（Java正则表达式）,以下配置表示，必须包含一个名为green的参数，并且其值匹配正则表达式 gree.。
+#            - Query=blue #多个query请求参数要这么写，可以不带值。但是谓词Query必须得写，因为通过谓词才能找到对应得工厂类。
+#            - name: Query #由于直接以- Query=得形式写得正则表达式中处理不了逗号，如果正则表达式中有逗号，需要像这样写。
+#              args:
+#                param: age
+#                regexp: \d{1,3}
+#            - RemoteAddr=192.168.1.1/24 #通过请求ip地址进行匹配.以下配置表示如果请求的远程地址是192.168.1.10，则此路由匹配。如果是本机，需要写127.0.0.1,不能是localhost,访问也要用127.0.0.1，不能用localhost
+#            - Weight=group1, 8 #有两个参数：group和weight（一个int数值）。权重是按组计算的。该路由会将约80%的流量转发到service-01，将约20%的流量转发到service-02，是概率性的转发.如果两个服务spring.application.name同名,则会自动均衡
+#          filters:
+#            - StripPrefix=2
+#            - name: AddRequestParameter
+##              order: 0 #负数先执行，正数后执行，还可以通过实现Ordered接口或使用@Order注解来达成目的。全局过滤器未指定默认=0，默认/路由过滤器按声明顺序执行（相当于order=0）
+#              args:
+#                name: X-Request-Default-Foo #会覆盖上面的默认过滤器，只有路由过滤器的配置生效，默认过滤器的配置不会执行
+#                value: Default-Bar-route
+#                name1: X-Request-Default-Foo-2
+#                value1: Default-Bar-2
+#            - name: AddRequestParameter
+#              args:
+#                name: X-Request-Default-Foo-3
+#                value: Default-Bar-route-3
+
+        - id: service-02
+          uri: http://localhost:8099 #目标地址URI
+          predicates: #断言，为真则匹配成功
+            - Before=2099-01-20T17:42:47.789-07:00[America/Denver] #表示2017-01-20T17:42:47之前的请求将被转发
+            - Path=/systemapi/system/** #匹配规则
+            - name: UserNameCheck
+              args:
+                name: kevin #传进来的用户名必须为这个
+#            - Weight=group1, 2
+          filters:
+            - StripPrefix=2
+            - name: CustomFilterFactory #如果不是XXXGatewayFilterFactory命名方式，则需要写全名
+            - name: User
+              args:
+                name: Lucy  #1.请求头名称(name)必须始终是ASCII字符,所以这里不能填中文
+                age: 18 #2.请求头值(value)可以包含编码后的非ASCII内容
+  #            - name: CircuitBreaker #过滤器名称，注意，此过滤器如果要作为熔断使用，必须配这个名称.支持CircuitBreaker和Hystrix两种
+#              args:
+#                name: backendA #熔断器名字，如果有配置resilience4j的配置，需要对应上
+#                fallbackUri: forward:/fallback #熔断之后跳转，本项目或其他项目配置
+#            - name: FallbackHeaders #将原始请求的异常信息添加到响应头中,默认包含以下四种头部信息：
+#              args:
+#                executionExceptionTypeHeaderName: "X-Exception-Type"  # 自定义异常类型头名称
+#                executionExceptionMessageHeaderName: "X-Exception-Msg" # 自定义异常消息头名称
+#                rootCauseExceptionTypeHeaderName: "X-Root-Cause-Type" # 自定义根因异常类型头名称
+#                rootCauseExceptionMessageHeaderName: "X-Root-Cause-Msg" # 自定义根因异常消息头名称
+#            - name: RewriteResponseHeader #重写响应头部的值
+#              args:
+#                name: X-Original-Path #需要重写的头部名称
+#                regexp: /api/(?<segment>.*) #正则表达式匹配模式
+#                replacement: /$\{segment} #替换表达式
+#            - name: RequestRateLimiter
+#              args:
+#                redis-rate-limiter.replenishRate: 1 #令牌桶每秒平均速率，允许用户每秒处理多少个请求
+#                redis-rate-limiter.burstCapacity: 2 #令牌桶的容量，允许在1s内完成的最大请求数
+#                redis-rate-limiter.requestedTokens: 1  # 每个请求消耗的令牌数
+##                key-resolver: '#{@pathKeyResolver}'
+#                #井号加大括号是固定写法，双引号也可以用单引号。#使用Spel表达式从Spring容器中获取Bean对象，查看RateLimiteConfig实现类中同名方法
+#                key-resolver: '#{@uriKeyResolver}'
+#            - name: SecureHeaders
+#              args:
+#                xss-protection-header: "1; mode=block"
+#                strict-transport-security: "max-age=631138519"
+#            - name: SetResponseHeader
+#              args:
+#                name: X-Response-Default
+#                value: Default-Value
+#            - name: Retry
+#              args:
+#                maxSize: 1000 #1KB 控制请求的大小，超过则返回413.请求最大默认5000000 约5M
+#                retries: 3 #重试次数
+#                series: #org.springframework.http.HttpStatus.Series 枚举 什么类型状态码进行重试
+#                  - SERVER_ERROR
+#                  - CLIENT_ERROR
+#                statuses: #org.springframework.http.HttpStatus枚举值，什么状态码重试
+#                  - BAD_GATEWAY
+#                  - METHOD_NOT_ALLOWED
+#                methods: #什么类型方法重试
+#                  - GET
+#                  - POST
+#                exception: #什么异常进行重试
+#                  - java.io.IOException
+#                backoff: #重试时间间隔
+#                  firstBackoff: 10ms
+#                  maxBackoff: 50ms
+#                  factor: 2
+#                  basedOnPreviousValue: false
+#                statuses: BAD_GATEWAY,INTERNAL_SERVER_ERROR
+#                methods: GET,POST
+#                series: SERVER_ERROR
+#                exceptions: java.io.IOException,java.util.concurrent.TimeoutException
+#                backoff:
+#                  firstBackoff: 10ms
+#                  maxBackoff: 1000ms
+#                  factor: 2
+#                  basedOnPreviousValue: false
+#            - name: RequestSize
+#              args:
+#                maxSize: 5MB #最大请求大小（支持KB,MB等单位）
+
+#        - id: service-03
+#          uri: http://localhost:8099 #目标地址URI
+#          predicates: #断言，为真则匹配成功
+#            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2099-01-21T17:42:47.789-07:00[America/Denver] #匹配 2017 年 1 月 20 日 17:42之后和 2017 年 1 月 21 日 17:42 之前发送的任何请求
+#            - Path=/systemapi/getHeader/{seq} #匹配规则，通过占位符标识一段地址
+##            - Path=/prefix/{var1}/{var2}/{var3} #搭配注解1
+#          filters:
+#            - StripPrefix=2 #从前往后去掉一些路径
+#            - AddRequestHeader= X-Request-author, kevin-{seq} #增加请求头，这个占位符就是上面Path中的占位符。多个参数需要有多个过滤器
+#            - AddRequestParameter= param-author, kevin-{seq} #动态请求头
+#            - AddResponseHeader=req-author,kevin-{seq}
+#            - SetRequestHeader=X-Request-id,9999 #设置请求头，没有则新增，有则修改
+#            - RemoveRequestHeader= X-Request #移除请求头
+#            - RemoveRequestParameter=X-Request #移除请求参数
+#            - RemoveResponseHeader=X-Application-Context #移除响应中的指定头部,支持通配符，如 RemoveResponseHeader=X-*，大小写敏感
+#            - MapRequestHeader=from-Header,to-Header #先从header取from-Header，如果有则赋值给to-Header,如果没from-Header则无效果
+#            - RewriteResponseHeader=req-url,passwd=[^&]+,passwd=*** #重写响应头中的密码，防止泄密
+#            - DedupeResponseHeader= req-id,RETAIN_FIRST #response去重 RETAIN_FIRST保留第一个，RETAIN_LAST保留最后一个，RETAIN_FIRST RETAIN_UNIQUE 保留唯一
+#            #如果在响应的代码中直接通过response.setHeader的方式设置同名响应header，后面的会覆盖前面的，只保留一个，要想演示出效果，需要在yml文件中通过AddResponseHeader添加一个同名的响应header
+#            - PrefixPath= /prefix #添加路径前缀，请求/get/app 其实是/prefix/get/app
+#            - RedirectTo=302,http://www.baidu.com #配置30几跳转指定地址
+#            - RedirectTo=301,http://www.taobao.com
+#            - SetStatus=NOT_FOUND #- 修改状态码，可以org.springframework.http.HttpStatus枚举，也可以直接写状态码
+##            - SetStatus=404
+#            - RewritePath=/api/getheader, /getheader #- 访问/api/getheader 实际访问：/getheader，转发的目的地址必须写 / 否则会出错
+#            - RewritePath=/www/(?/?.*), /prefix/$\{segment}  #http://192.168.31.80:8801/www/get/user/12123实际访问：/prefix/get/user/12123。- http://192.168.31.80:8801/www/getheader 实际访问：/prefix/getheader
+##            - SetPath=/{var1}/{var2} #注解1：请求/profix/get/user/12123 实际请求是 /get/user
+#            - SaveSession #只有当集成Spring Session才会将session放到Redis，来实现共享Session功能，如果项目继承了Spring Session中的Spring Security框架。如果希望安全验证信息可以转发到远程应用，那么这个配置是必须的
+#            - SecureHeaders #可以这么写，自动添加安全相关的HTTP头部。
+#
+
+  #redis相关配置
+  redis:
+    host: 192.168.56.141
+    port: 6379
+    lettuce:
+      pool:
+        #连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-active: 10
+        #连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-wait: -1
+        #连接池中的最大空闲连接 默认 8
+        max-idle: 10
+        # 连接池中的最小空闲连接 默认 0
+        min-idle: 2
+    timeout: 6000
+
+
+#resilience4j的配置，不配置也可，走默认的
+resilience4j:
+  circuitbreaker:
+    instances:
+      backendA:
+        register-health-indicator: true
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 5s
+        failure-rate-threshold: 50
+        event-consumer-buffer-size: 10
+        record-exceptions:
+          - org.springframework.web.server.ResponseStatusException
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+          - org.springframework.cloud.gateway.support.TimeoutException
+
+logging:
+  level:
+    root: INFO
