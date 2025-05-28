@@ -1,7 +1,7 @@
 package com.demo.designmodel.abstractfactory;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/20 22:35
  * @description 抽象产品接口：应用程序
  */

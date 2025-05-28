@@ -64,12 +64,6 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--MQTT-->
-        <dependency>
-            <groupId>org.eclipse.paho</groupId>
-            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-            <scope>compile</scope>
-        </dependency>
         <!--lombook注解-->
         <dependency>
             <groupId>org.projectlombok</groupId>

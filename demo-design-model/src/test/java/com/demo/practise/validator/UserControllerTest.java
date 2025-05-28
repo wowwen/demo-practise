@@ -2,14 +2,12 @@ package com.demo.practise.validator;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -24,22 +22,21 @@ import java.util.List;
 /**
  *
  * @FileName: UserControllerTest
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-25 16:12
  * @Description: TODO
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @WebAppConfiguration
 @Slf4j
 public class UserControllerTest {
 
-    @Before
+    @BeforeEach
     public void init() {
         log.info("=====start======");
     }
 
-    @After
+    @AfterEach
     public void after() {
         log.info("=====finished======");
     }
@@ -49,7 +46,7 @@ public class UserControllerTest {
 
     private MockMvc mockMvc;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
     }

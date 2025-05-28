@@ -1,7 +1,7 @@
-package com.demo.designmodel.adapter;
+package com.demo.designmodel.adapter.example1;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/22 11:25
  * @description // 统一的Shape接口
  */

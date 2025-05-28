@@ -1,11 +1,11 @@
 package com.demo.designmodel.abstractfactory;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/20 22:27
  * @description  抽象产品接口：操作系统
  */
-public interface OperatingSystem {
+public interface OperatingOS {
     /**
      * 声明一组用于创建不同产品的抽象方法
      */
@@ -15,7 +15,7 @@ public interface OperatingSystem {
 /**
  * 具体的产品：windows操作系统
  */
-class WindowsOS implements OperatingSystem{
+class WindowsOS implements OperatingOS {
 
     @Override
     public void run() {
@@ -25,7 +25,7 @@ class WindowsOS implements OperatingSystem{
 /**
  * 具体的产品：Linux操作系统
  */
-class LinuxOS implements OperatingSystem{
+class LinuxOS implements OperatingOS {
 
     @Override
     public void run() {

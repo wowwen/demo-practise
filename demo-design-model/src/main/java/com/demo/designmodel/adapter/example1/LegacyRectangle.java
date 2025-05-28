@@ -1,7 +1,7 @@
-package com.demo.designmodel.adapter;
+package com.demo.designmodel.adapter.example1;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/22 10:30
  * @description // 已存在的LegacyRectangle类
  */

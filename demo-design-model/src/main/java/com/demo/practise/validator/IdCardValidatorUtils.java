@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  *
  * @FileName: IdCardValidatorUtils
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-25 14:37
  * @Description: TODO
  * * 根据〖中华人民共和国国家标准GB11643-1999〗中有关公民身份号码的规定，

@@ -1,7 +1,7 @@
 package com.demo.designmodel.factory;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/19 18:59
  * @description 首先，定义一个图形接口类
  */

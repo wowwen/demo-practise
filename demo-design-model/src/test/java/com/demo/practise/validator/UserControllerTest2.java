@@ -2,13 +2,11 @@ package com.demo.practise.validator;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -25,11 +23,10 @@ import java.util.List;
 /**
  *
  * @FileName: UserControllerTest2
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-28 10:24
  * @Description: TODO
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @WebAppConfiguration
 @Slf4j
@@ -40,7 +37,7 @@ public class UserControllerTest2 {
 
     private MockMvc mockMvc;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }

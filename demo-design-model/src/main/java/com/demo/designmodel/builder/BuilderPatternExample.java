@@ -1,7 +1,7 @@
 package com.demo.designmodel.builder;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/21 23:16
  * @description // 这个示例演示了如何使用建造者模式创建不同类型的房屋，每种房屋类型的建造过程都由相应的具体建造者类负责实现，而指导者类负责协调建造过程。
  */

@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 /**
  *
  * @FileName: IdentityCardNumberValidator
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-25 14:28
  * @Description: TODO
  */

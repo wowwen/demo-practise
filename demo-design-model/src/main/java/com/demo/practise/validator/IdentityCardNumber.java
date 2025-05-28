@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 /**
  *
  * @FileName: IdentityCardNumber
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-25 14:02
  * @Description:
  * 这个注解是作用在Field字段上，运行时生效，触发的是IdentityCardNumber这个验证类。

@@ -1,7 +1,7 @@
 package com.demo.designmodel.builder;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/21 21:10
  * @description // 然后，我们创建一个抽象建造者类 HouseBuilder，它定义了构建房屋的方法。
  */

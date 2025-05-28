@@ -15,7 +15,7 @@ import javax.xml.bind.ValidationException;
 /**
  *
  * @FileName: GlobalExceptionHandler
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-22 16:15
  * @Description: 定义全局异常处理器
  *

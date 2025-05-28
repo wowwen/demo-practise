@@ -3,7 +3,7 @@ package com.demo.designmodel.strategymodel;
 /**
  *
  * @FileName: UserType
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-26 16:53
  * @Description: 枚举类
  */

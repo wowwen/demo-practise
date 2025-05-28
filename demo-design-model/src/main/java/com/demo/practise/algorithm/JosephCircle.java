@@ -3,7 +3,7 @@ package com.demo.practise.algorithm;
 import java.util.Scanner;
 
 /**
- * @author jiangyw8
+ * @author owen
  * 使用循环链表解决约瑟夫环问题
  * https://blog.csdn.net/weixin_43570367/article/details/105896737
  */

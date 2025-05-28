@@ -5,7 +5,7 @@ import com.demo.designmodel.strategymodel.UserType;
 /**
  *
  * @FileName: PlatinumStrategyV2
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-27 20:12
  * @Description: TODO
  */

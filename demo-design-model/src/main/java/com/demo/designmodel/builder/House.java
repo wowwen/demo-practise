@@ -1,7 +1,7 @@
 package com.demo.designmodel.builder;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/21 20:16
  * @description // 首先，我们定义房屋类 House，它具有多个属性，如地基、结构、屋顶和装修。
  */

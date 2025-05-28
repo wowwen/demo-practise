@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  *
  * @FileName: RspDTO
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-22 17:19
  * @Description: 统一返回结构体
  */

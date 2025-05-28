@@ -5,7 +5,7 @@ import com.demo.designmodel.strategymodel.UserType;
 /**
  *
  * @FileName: GoldStrategyV2
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-27 20:11
  * @Description: TODO
  */

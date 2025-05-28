@@ -7,7 +7,7 @@ import lombok.Data;
 /**
  *
  * @FileName: BizException
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-9-25 10:26
  * @Description: TODO
  */

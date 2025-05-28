@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  *
  * @FileName: StrategyFactory
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-27 20:23
  * @Description:
  * 静态内部类单例，单例模式实现的一种，不是本文重点，如不了解，可以自行 google

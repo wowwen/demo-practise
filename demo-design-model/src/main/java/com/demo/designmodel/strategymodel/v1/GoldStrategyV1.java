@@ -3,7 +3,7 @@ package com.demo.designmodel.strategymodel.v1;
 /**
  *
  * @FileName: GoldStrategy
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-26 17:39
  * @Description: TODO
  */

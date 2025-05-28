@@ -1,12 +1,12 @@
 package com.demo.designmodel.abstractfactory;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/21 14:21
  * @description 抽象工厂接口
  */
 public interface AbstractSoftwareFactory {
-    OperatingSystem createOperatingSystem();
+    OperatingOS createOperatingSystem();
     Application createApplication();
 }
 
@@ -16,7 +16,7 @@ public interface AbstractSoftwareFactory {
 class WindowsFactory implements AbstractSoftwareFactory{
 
     @Override
-    public OperatingSystem createOperatingSystem() {
+    public OperatingOS createOperatingSystem() {
         return new WindowsOS();
     }
 
@@ -32,7 +32,7 @@ class WindowsFactory implements AbstractSoftwareFactory{
 class LinuxFactory implements AbstractSoftwareFactory{
 
     @Override
-    public OperatingSystem createOperatingSystem() {
+    public OperatingOS createOperatingSystem() {
         return new LinuxOS();
     }
 

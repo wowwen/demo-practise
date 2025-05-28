@@ -1,7 +1,7 @@
 package com.demo.designmodel.factory;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/19 23:43
  * @description // 接下来，我们创建一个抽象工厂类 ShapeFactory
  *              // 它定义了一个抽象的工厂方法 createShape，子类将实现这个方法来创建具体的图形对象

@@ -1,7 +1,7 @@
-package com.demo.designmodel.adapter;
+package com.demo.designmodel.adapter.example1;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/22 12:03
  * @description // 在这个示例中，LegacyRectangle是已经存在的类，而RectangleAdapter是适配器类，用于将LegacyRectangle适配到Rectangle接口上。
  * // 客户端代码通过使用适配器来画一个矩形，实际上是在调用了LegacyRectangle的display方法，但是通过适配器，它符合了Rectangle接口的标准。
