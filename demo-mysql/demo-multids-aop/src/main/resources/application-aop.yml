@@ -3,15 +3,17 @@ spring:
     ds1:
       url: jdbc:mysql://localhost:3306/ds1?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
       username: root
-      password: 111
+      password: root
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.mysql.cj.jdbc.Driver
     ds2:
       url: jdbc:mysql://localhost:3306/ds2?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
       username: root
-      password: 111
+      password: root
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.mysql.cj.jdbc.Driver
+  main:
+    allow-circular-references: true
 
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml

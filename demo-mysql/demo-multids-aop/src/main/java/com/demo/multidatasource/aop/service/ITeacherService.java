@@ -7,4 +7,6 @@ import java.util.List;
 public interface ITeacherService {
 
     List<Teacher> getAll();
+
+    void addTeacher(Teacher teacher) throws Exception;
 }

@@ -7,9 +7,7 @@ import com.demo.multidatasource.aop.service.ITeacherService;
 import com.demo.practise.common.resp.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,14 +23,24 @@ public class TestController {
 	@GetMapping("/student/all")
 	public Message<List<Student>> getAllStudent() throws Exception {
 		List<Student> all = studentService.getAll();
-		return new Message<List<Student>>(all);
+		return new Message<>(all);
 	}
 
 	@GetMapping("/teacher/all")
 	public Message<List<Teacher>> getOneTeacher() throws Exception {
 		List<Teacher> all = teacherService.getAll();
-		return new Message<List<Teacher>>(all);
+		return new Message<>(all);
 	}
 
+	@PostMapping("/student/add")
+	public Message addStudent(@RequestBody Student student) throws Exception {
+		studentService.addStudent(student);
+		return new Message();
+	}
 
+	@PostMapping("/teacher/add")
+	public Message addTeacher(@RequestBody Teacher teacher) throws Exception {
+		teacherService.addTeacher(teacher);
+		return new Message();
+	}
 }

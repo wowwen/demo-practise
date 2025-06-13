@@ -23,7 +23,7 @@ public class DynamicDataSourceConfiguration {
         return new DruidDataSource();
     }
 
-    @Bean(name = "dataSource1")
+    @Bean(name = "dataSource_1")
     @ConfigurationProperties(prefix = "spring.datasource.ds2")
     public DataSource dataSource1() {
         return new DruidDataSource();
@@ -39,17 +39,16 @@ public class DynamicDataSourceConfiguration {
         //配置多数据源
         HashMap<Object, Object> dataSourceMap = new HashMap();
         dataSourceMap.put(DataSourceEnum.PRIMARY.name(), primaryDataSource());
-        dataSourceMap.put(DataSourceEnum.DATASOURCE1.name(), dataSource1());
+        dataSourceMap.put(DataSourceEnum.DATASOURCE_1.name(), dataSource1());
         dynamicDataSource.setTargetDataSources(dataSourceMap);
         return dynamicDataSource;
     }
-
-    /**
-     * 配置@Transactional注解事物
-     * @return
-     */
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(dynamicDataSource());
-    }
+//    /**
+//     * 配置@Transactional注解事物  实验证明：这个事务管理器配置不需要，不配置讲道理会自动走Spring的AOP代理机制织入到TransactionInterceptor
+//     * @return
+//     */
+//    @Bean
+//    public PlatformTransactionManager transactionManager() {
+//        return new DataSourceTransactionManager(dynamicDataSource());
+//    }
 }

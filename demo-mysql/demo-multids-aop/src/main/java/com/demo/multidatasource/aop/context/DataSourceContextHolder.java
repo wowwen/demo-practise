@@ -7,7 +7,7 @@ public class DataSourceContextHolder {
     private static final Logger log = LoggerFactory.getLogger(DataSourceContextHolder.class);
 
     //使用ThreadLocal线程安全的使用变量副本
-    private static final ThreadLocal<String> CONTEXT_HOLDER = new ThreadLocal<String>();
+    private static final ThreadLocal<String> CONTEXT_HOLDER = new ThreadLocal<>();
 
     /**
      * 设置数据源
