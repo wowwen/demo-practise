@@ -1,7 +1,7 @@
 package com.demo.stream.test;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -99,9 +99,6 @@ public class StreamTerminalOperationTransformPractice {
                         });
         log.info("accResult:{}", accResult);
     }
-
-
-
 
     @Test
     public void listSort(){

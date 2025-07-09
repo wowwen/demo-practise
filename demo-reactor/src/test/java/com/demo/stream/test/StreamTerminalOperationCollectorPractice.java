@@ -2,7 +2,7 @@ package com.demo.stream.test;
 
 import cn.hutool.core.lang.hash.Hash32;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashSet;

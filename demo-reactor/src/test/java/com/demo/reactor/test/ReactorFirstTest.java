@@ -1,8 +1,8 @@
 package com.demo.reactor.test;
 
-import com.sun.xml.internal.ws.util.StringUtils;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Hooks;
 import reactor.core.publisher.Mono;
@@ -114,7 +114,7 @@ public class ReactorFirstTest {
      * step2：使用ReactorDebugAgent.init()初始化代理。由于该代理是在加载类时对其进行检测，因此放置它的最佳位置是在main（String []）方法中的所有其他项之前
      * step3：如果是测试类，使用如下代码处理现有的类。注意，在测试类中需要提前运行，比如在 @Before 中
      */
-    @Before
+    @BeforeEach
     public void before(){
         ReactorDebugAgent.init();
         ReactorDebugAgent.processExistingClasses();

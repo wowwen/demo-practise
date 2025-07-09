@@ -3,7 +3,7 @@ package com.demo.stream.test;
 /**
  *
  * @FileName: DataLoopTest
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-10-9 8:29
  * @Description: 可以看到在百万数据下做简单数据循环处理，对于普通for(for\foreach)循环或stream(并行、非并行)下，几者的效率差异并不明显，
  * 注意: 在百万数据下，普通for、foreach循环处理可能比stream的方式快许多，对于这点效率的损耗，其实lambda表达式对代码的简化更大！
@@ -11,7 +11,8 @@ package com.demo.stream.test;
  */
 
 import lombok.Data;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

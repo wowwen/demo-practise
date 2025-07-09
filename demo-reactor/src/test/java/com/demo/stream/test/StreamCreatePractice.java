@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import javax.validation.constraints.NotNull;
 import java.io.BufferedReader;
@@ -31,7 +32,7 @@ import java.util.stream.*;
 /**
  *
  * @FileName: StreamPractice
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-10-8 22:17
  * @Description: cnblogs.com/funnyzpc/p/10382053.html
  * <p>
