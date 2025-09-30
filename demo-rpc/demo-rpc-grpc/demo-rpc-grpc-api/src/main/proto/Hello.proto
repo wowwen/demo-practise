@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "com.demo.grpc.api";
+option java_outer_classname = "HelloProto";
+
+// The greeting service definition.
+service HelloService {
+  // Sends a greeting
+  rpc hello (HelloRequest) returns (HelloResponse) {}
+  //传递多个请求参数List
+  rpc helloList(HelloRequestList) returns (HelloResponseList){}
+  //服务端流式rpc（服务端不定时返回多个响应消息）
+  rpc c2ss(HelloRequest) returns (stream HelloResponse){}
+  //客户端流式RPC（客户端不定时发送request，服务端响应一个响应）
+  rpc cs2s(stream HelloRequest) returns (HelloResponse){}
+  //双端流式RPC（客户端给服务端发多个message，服务端也给客户端响应多个message）
+  rpc cs2ss(stream HelloRequest) returns (stream HelloResponse){}
+  //只能用于一元RPC得FutureStub
+  rpc futureTest(HelloRequest) returns (HelloResponse){}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloResponse {
+  string result = 1;
+}
+
+// repeated代表传递多个参数，形成一个list
+message HelloRequestList {
+  repeated string name = 1;
+}
+
+// The response message containing the greetings
+message HelloResponseList {
+  string result = 1;
+}

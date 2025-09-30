@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: grpc-boot-server
+  main:
+    web-application-type: none #none:不用容器 reactive：用响应式的开发 servlet：使用容器
+
+
+grpc:
+  server:
+    port: 9000

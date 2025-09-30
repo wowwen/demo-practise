@@ -1,0 +1,22 @@
+//注意，此文件一定要在src/main/proto文件夹下
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "com.demo.grpc.boot.api";
+option java_outer_classname = "HelloProto";
+
+// The greeting service definition.
+service HelloService {
+  // Sends a greeting
+  rpc hello (HelloRequest) returns (HelloResponse) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloResponse {
+  string result = 1;
+}
