@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    #激活不同模块的配置文件
+    active: netty, lettuce
