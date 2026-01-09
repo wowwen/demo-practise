@@ -1,14 +1,34 @@
 spring:
+  main:
+    allow-circular-references: true
   datasource:
     ds1:
-      url: jdbc:mysql://localhost:3306/ds1?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
-      username: root
-      password: 111
-      type: com.alibaba.druid.pool.DruidDataSource
-      driverClassName: com.mysql.cj.jdbc.Driver
+      unique-resource-name: ds1
+      xa-data-source-class-name: com.mysql.cj.jdbc.MysqlXADataSource
+      min-pool-size: 8
+      max-pool-size: 20
+      xa-properties:
+        URL: jdbc:mysql://localhost:3306/ds1?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
+        user: root
+        password: root
+
+#      url: jdbc:mysql://localhost:3306/ds1?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
+#      username: root
+#      password: root
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      driverClassName: com.mysql.cj.jdbc.Driver
     ds2:
-      url: jdbc:mysql://localhost:3306/ds2?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
-      username: root
-      password: 111
-      type: com.alibaba.druid.pool.DruidDataSource
-      driverClassName: com.mysql.cj.jdbc.Driver
+      unique-resource-name: ds2
+      xa-data-source-class-name: com.mysql.cj.jdbc.MysqlXADataSource
+      min-pool-size: 8
+      max-pool-size: 20
+      xa-properties:
+        URL: jdbc:mysql://localhost:3306/ds2?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
+        user: root
+        password: root
+
+#      url: jdbc:mysql://localhost:3306/ds2?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf8
+#      username: root
+#      password: root
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      driverClassName: com.mysql.cj.jdbc.Driver
