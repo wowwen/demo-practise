@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("student")
-@ApiModel(value = "边缘端设备算法配置信息")
 public class Student {
 
     @ApiModelProperty(value = "主键id")
