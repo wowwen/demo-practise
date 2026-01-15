@@ -1,10 +1,7 @@
 package com.demo.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 /**
@@ -52,4 +49,26 @@ public class UserAspect {
     //1.实现拦截规则非常困难。如注册方法和登录方法是不拦截的，这样的话排除方法的规则很难定义，甚至没有办法定义
     //2.在切面类中拿到HttpSession比较难
     //为了解决Spring AOP的这些问题，spring提供了拦截器，如LoginInterceptor类
+
+
+    @After("pointcut()")
+    public void doAfter(){
+        System.out.println("执行了后置通知");
+    }
+
+
+    //
+    @AfterReturning(returning = "obj", pointcut = "pointcut()")
+    public void doAfterReturning(Object obj){
+        System.out.println("处理完请求，返回内容" + obj);
+    }
+
+
+    /** 测试结果：
+     * 进入环绕通知
+     * 执行了前置通知
+     * 处理完请求，返回内容User AOP 测试
+     * 执行了后置通知
+     * 退出环绕通知
+     */
 }
