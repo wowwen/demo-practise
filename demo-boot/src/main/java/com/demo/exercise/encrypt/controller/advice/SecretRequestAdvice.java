@@ -19,7 +19,6 @@ import org.springframework.util.StreamUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
-import sun.security.provider.MD5;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

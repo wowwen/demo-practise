@@ -1,19 +1,15 @@
-package com.demo.optional.test;
+package com.demo.test.optional;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import java.util.Optional;
 import java.util.function.Supplier;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = OptionalDemo.class)
 public class OptionalDemo {
 

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-exercise</artifactId>
+    <artifactId>demo-boot</artifactId>
 
     <dependencies>
         <dependency>
@@ -23,6 +23,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.30</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <!--集成JPA需要引入的包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <!--MDC功能使用-->
@@ -50,6 +56,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--如果需要用到前端WEB视图，并采用Freemarker模板引擎渲染，则需要导入此依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
     </dependencies>

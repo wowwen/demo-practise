@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: exercise
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ds1?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+  #freemark可以修改一些默认配置
+  freemarker:
+#    allow-request-override: false
+#    cache: true
+#    check-template-location: true
+#    charset: UTF-8
+#    content-type: text/html
+#    template-loader-path: classpath:/templates/
+    #注意，默认的后缀是.ftlh，如果其他的后缀需要修改默认配置
+    suffix: .ftl
+
+secret:
+  privateKey:
+    h5: 123456
+    web: 8VBkO5amPcPrXV3m

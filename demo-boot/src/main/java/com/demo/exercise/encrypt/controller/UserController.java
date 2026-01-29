@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = {"/user", "/secret/user"})
 public class UserController {
+
     @RequestMapping("/list")
     Message<List<User>> listUser() {
         List<User> users = new ArrayList<>();
