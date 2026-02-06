@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2022/3/30 8:59
  * @description 基于注解设定多线程定时任务
  */

@@ -13,7 +13,7 @@ import org.springframework.util.StringUtils;
 import java.time.LocalDateTime;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2022/3/29 20:32
  * @description 基于接口（SchedulingConfigurer）创建定时任务, 读取数据库的配置，修改配置后可以不用重启应用；
  * 注意：如果在数据库修改时格式出现错误，则定时任务会停止，即使重新修改正确后，也只能重新启动项目才能恢复。
