@@ -1,0 +1,41 @@
+package com.demo.netty.learn.bytebuf;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+
+/**
+ * @author owen
+ * @date 2025/3/22 1:42
+ * @description 直接缓冲区模式（Direct Buffer）--ByteBuf三种使用模式之一
+ */
+public class ByteBufDirectBufferDemo {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // 创建一个直接缓冲区
+        ByteBuf buffer = Unpooled.directBuffer(10);
+        String s = "waylau";
+        buffer.writeBytes(s.getBytes());
+        // 检查是否是支撑数组.
+        // 不是支撑数组，则为直接缓冲区
+        if (!buffer.hasArray()) {
+            // 计算第一个字节的偏移量
+            int offset = buffer.readerIndex();
+            // 可读字节数
+            int length = buffer.readableBytes();
+            // 获取字节内容
+            byte[] array = new byte[length];
+            buffer.getBytes(offset, array);
+
+            printBuf(array, offset, length);
+        }
+    }
+
+    private static void printBuf(byte[] array, int offset, int len) {
+        System.out.println("array：" + array);
+        System.out.println("array->String：" + new String(array));
+        System.out.println("offset：" + offset);
+        System.out.println("len：" + len);
+    }
+}
