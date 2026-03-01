@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  *
  * @FileName: CountdownLatchTest3
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-8 0:34
  * @Description: new Thread()之后选手已经创建出来，thread.start()之后选手（子线程）已经就绪，begin.countDown()则裁判发令可以开跑了，
  * 但是具体什么时候执行子线程中的run方法，是由cpu中竞态条件决定的，没法控制，好比即使发令枪响，有的人也过了会才起跑。

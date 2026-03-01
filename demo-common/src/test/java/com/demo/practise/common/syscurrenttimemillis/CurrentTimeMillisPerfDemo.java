@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  *
  * @FileName: CurrentTimeMillisPerfDemo
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-6 11:47
  * @Description: 测试System.currentTimeMillis()性能问题
  */

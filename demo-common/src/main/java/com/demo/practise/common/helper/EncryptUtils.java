@@ -1,8 +1,8 @@
 package com.demo.practise.common.helper;
 
-import org.apache.tomcat.util.codec.binary.Base64;
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 import org.springframework.util.StringUtils;
-import sun.misc.BASE64Decoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -32,7 +32,7 @@ public class EncryptUtils {
      * @return 编码后的base 64 code
      */
     public static String base64Encode(byte[] bytes) {
-        String data = Base64.encodeBase64String(bytes);
+        String data = Base64Encoder.encode(bytes);
         if (!StringUtils.isEmpty(data)) {
             // 处理一行超过76个字符换行问题
             return data.replaceAll("[\\s*\t\n\r]", "");
@@ -49,7 +49,7 @@ public class EncryptUtils {
      * @throws Exception
      */
     public static byte[] base64Decode(String base64Code) throws Exception {
-        return StringUtils.isEmpty(base64Code) ? null : new BASE64Decoder().decodeBuffer(base64Code);
+        return StringUtils.isEmpty(base64Code) ? null : Base64Decoder.decode(base64Code);
     }
 
     /**

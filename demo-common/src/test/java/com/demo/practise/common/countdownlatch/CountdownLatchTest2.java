@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 /**
  *
  * @FileName: CountdownLatchTest2
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-6 19:25
  * @Description: 测试CountDownLatch赛跑模式
  */

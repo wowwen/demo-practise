@@ -13,7 +13,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import javax.servlet.ServletContext;
 
 /**
- * @author jiangyw
+ * @author owen
  * @date 2024/7/17 13:59
  * @description Spring上下文操作类
  */

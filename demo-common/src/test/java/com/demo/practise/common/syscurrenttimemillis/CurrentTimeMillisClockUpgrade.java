@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 /**
  *
  * @FileName: CurrentTimeMillisClockUpgrade
- * @Author: jiangyw8
+ * @Author: owen
  * @Date: 2020-11-6 16:48
  * @Description: 针对System.currentTimeMillis()性能问题的解决方案.
  * 如何解决这个问题？最常见的办法是用单个调度线程来按毫秒更新时间戳，相当于维护一个全局缓存。其他线程取时间戳时相当于从内存取，不会再造成时钟资源的争用，
